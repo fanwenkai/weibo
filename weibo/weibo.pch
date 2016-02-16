@@ -14,5 +14,6 @@
 
 #import "FKAPIClient.h"
 #import "Setting.h"
+#import "DefaultSetting.h"
 
 #endif /* weibo_pch */

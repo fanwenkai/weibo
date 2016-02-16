@@ -67,6 +67,11 @@ static CGFloat const btnH = 49;
         
         [self addSubview:item];
         
+        if (idx == 0) {
+            self.seletBtn = item;
+            item.selected = YES;
+        }
+        
     }];
     
 }

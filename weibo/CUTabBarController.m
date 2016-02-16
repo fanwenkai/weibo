@@ -9,10 +9,10 @@
 #import "CUTabBarController.h"
 #import "CUTabBarExtension.h"
 
-//#import "FirstViewController.h"
-//#import "SecondViewController.h"
-//#import "ThreeViewController.h"
-//#import "FourViewController.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
+#import "ThreeViewController.h"
+#import "FourViewController.h"
 
 @interface CUTabBarController ()<CUTabBarExtensionDelegate>
 
@@ -35,17 +35,17 @@
     [super viewDidLoad];
     
     /** 添加子控制器 */
-//    UIViewController *hallVC = [[FirstViewController alloc] init];
-//    [self tabBarChildViewController:hallVC norImage:[UIImage imageNamed:@"tabBar_essence_icon"] selImage:[UIImage imageNamed:@"tabBar_essence_click_icon"] title:@"essence"];
-//    
-//    UIViewController *arenaVC = [[SecondViewController alloc] init];
-//    [self tabBarChildViewController:arenaVC norImage:[UIImage imageNamed:@"tabBar_friendTrends_icon"] selImage:[UIImage imageNamed:@"tabBar_friendTrends_click_icon"] title:@"friend"];
-//    
-//    UIViewController *discoverVC = [[ThreeViewController alloc] init];
-//    [self tabBarChildViewController:discoverVC norImage:[UIImage imageNamed:@"tabBar_me_icon"] selImage:[UIImage imageNamed:@"tabBar_me_click_icon"] title:@"me"];
-//    
-//    UIViewController *historyVC = [[FourViewController alloc] init];
-//    [self tabBarChildViewController:historyVC norImage:[UIImage imageNamed:@"tabBar_new_icon"] selImage:[UIImage imageNamed:@"tabBar_new_click_icon"] title:@"new"];
+    UIViewController *homeVC = [[FirstViewController alloc] init];
+    [self tabBarChildViewController:homeVC norImage:[UIImage imageNamed:@"tabbar_home"] selImage:[UIImage imageNamed:@"tabbar_home_selected"] title:@"首页"];
+    
+    UIViewController *messageVC = [[SecondViewController alloc] init];
+    [self tabBarChildViewController:messageVC norImage:[UIImage imageNamed:@"tabbar_message_center"] selImage:[UIImage imageNamed:@"tabbar_message_center_selected"] title:@"消息"];
+    
+    UIViewController *discoverVC = [[ThreeViewController alloc] init];
+    [self tabBarChildViewController:discoverVC norImage:[UIImage imageNamed:@"tabbar_discover"] selImage:[UIImage imageNamed:@"tabbar_discover_selected"] title:@"搜索"];
+    
+    UIViewController *myVC = [[FourViewController alloc] init];
+    [self tabBarChildViewController:myVC norImage:[UIImage imageNamed:@"tabbar_profile"] selImage:[UIImage imageNamed:@"tabbar_profile_selected"] title:@"我的"];
     
     /** 自定义tabbar */
     [self setTatBar];
@@ -55,13 +55,13 @@
 {
     /** 创建自定义tabbar */
     CUTabBarExtension *tabBar = [[CUTabBarExtension alloc] init];
-    tabBar.backgroundColor = [UIColor whiteColor];
+    tabBar.backgroundColor = tabBarBackColor;
     tabBar.frame = self.tabBar.bounds;
     //一定要在tabBar.items = self.itemArray;前面设置
-    [tabBar cu_setTabBarItemTitleColor:[UIColor blackColor] andSelTitleColor:[UIColor grayColor]];
+    [tabBar cu_setTabBarItemTitleColor:tabBarTitleColor andSelTitleColor:tabBarTitleSelColor];
     /** 传递模型数组 */
     tabBar.items = self.itemArray;
-    [tabBar cu_setShadeItemBackgroundColor:[UIColor cyanColor]];
+    [tabBar cu_setShadeItemBackgroundColor:tabBarItemShadeColor];
     
     /** 设置代理 */
     tabBar.delegate = self;
