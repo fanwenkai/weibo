@@ -1,0 +1,52 @@
+PODS:
+  - AFNetworking (3.0.4):
+    - AFNetworking/NSURLSession (= 3.0.4)
+    - AFNetworking/Reachability (= 3.0.4)
+    - AFNetworking/Security (= 3.0.4)
+    - AFNetworking/Serialization (= 3.0.4)
+    - AFNetworking/UIKit (= 3.0.4)
+  - AFNetworking/NSURLSession (3.0.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.0.4)
+  - AFNetworking/Security (3.0.4)
+  - AFNetworking/Serialization (3.0.4)
+  - AFNetworking/UIKit (3.0.4):
+    - AFNetworking/NSURLSession
+  - IQKeyboardManager (4.0.0)
+  - JSONModel (1.2.0)
+  - Masonry (0.6.4)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.0)
+  - pop (1.0.9)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - Toast (2.4)
+
+DEPENDENCIES:
+  - AFNetworking
+  - IQKeyboardManager
+  - JSONModel
+  - Masonry
+  - MBProgressHUD (~> 0.9.1)
+  - MJRefresh
+  - pop (~> 1.0)
+  - SDWebImage (~> 3.7)
+  - Toast (~> 2.4)
+
+SPEC CHECKSUMS:
+  AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  IQKeyboardManager: b91928f7927ba55a5829b4dcf4b7a6736ac9fc22
+  JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  Toast: 0773b8fc0e97352ca6054517bec7ebdd4110029d
+
+PODFILE CHECKSUM: 8230576ebc4a4de3caad69f90549a3ec7d140c9f
+
+COCOAPODS: 1.0.0.beta.2
