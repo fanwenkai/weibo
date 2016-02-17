@@ -14,6 +14,8 @@ UIWebViewDelegate
 
 @property(nonatomic, strong) UIWebView *webView;
 
+@property(nonatomic, strong) OAuthCompletedBlock oauthBlock;
+
 @end
 
 @implementation OAuthWebViewController
@@ -41,13 +43,17 @@ UIWebViewDelegate
     
 }
 
+- (void)oauthFinishSetBlock:(OAuthCompletedBlock)block
+{
+    _oauthBlock = block;
+}
 
 #pragma mark - UIWebView Delegate Methods
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *url = webView.request.URL.absoluteString;
-    NSLog(@"absoluteString:%@",url);
+    DLog(@"absoluteString:%@",url);
     
     if ([url hasPrefix:@"https://api.weibo.com/oauth2/default.html?"]) {
         
@@ -59,13 +65,13 @@ UIWebViewDelegate
         NSRange range = NSMakeRange(rangeOne.length+rangeOne.location, url.length-(rangeOne.length+rangeOne.location));
         //获取code值
         NSString *codeString = [url substringWithRange:range];
-        NSLog(@"code = :%@",codeString);
+        DLog(@"code = :%@",codeString);
         
         //access token调用URL的string
         NSMutableString *muString = [NSMutableString stringWithFormat:@"https://api.weibo.com/oauth2/access_token?client_id=%@&client_secret=%@&grant_type=authorization_code&redirect_uri=https://api.weibo.com/oauth2/default.html&code=",appID,appSecret];
 
         [muString appendString:codeString];
-        NSLog(@"access token url :%@",muString);
+        DLog(@"access token url :%@",muString);
         
         //第一步，创建URL
         NSURL *urlstring = [NSURL URLWithString:muString];
@@ -76,7 +82,7 @@ UIWebViewDelegate
         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
         [request setHTTPBody:data];
         //第三步，连接服务器
-        
+        __weak typeof(self) weakSelf = self;
         NSURLSession *session = [NSURLSession sharedSession];
         NSURLSessionDataTask *task = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error)
@@ -86,18 +92,31 @@ UIWebViewDelegate
                 return ;
             }
             NSString *str1 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"Back String :%@",str1);
+            DLog(@"Back String :%@",str1);
             
             NSError *errorDic;
             //如何从str1中获取到access_token
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&errorDic];
             
             NSString *_access_token = [dictionary objectForKey:@"access_token"];
-            NSLog(@"access token is:%@",_access_token);
+            DLog(@"access token is:%@",_access_token);
+            
+            //保存用户Token信息
+            [weakSelf saveUserMsg:_access_token];
+            
+            if (_oauthBlock) {
+                weakSelf.oauthBlock();
+            }
+            
         }];
         
         [task resume];
     }
+}
+
+- (void)saveUserMsg:(NSString *)accessToken
+{
+    [SSKeychain setPassword:accessToken forService:serverName account:accountName];
 }
 
 @end

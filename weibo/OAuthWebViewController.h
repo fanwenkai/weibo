@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^OAuthCompletedBlock)();
+
 @interface OAuthWebViewController : UIViewController
 
-
+- (void)oauthFinishSetBlock:(OAuthCompletedBlock)block;
 
 @end

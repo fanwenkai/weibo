@@ -19,12 +19,21 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    self.window.rootViewController = [[CUTabBarController alloc] init];
-//    self.window.rootViewController = [[OAuthWebViewController alloc] init];
+    OAuthWebViewController *oauthWebVC = [[OAuthWebViewController alloc] init];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [oauthWebVC oauthFinishSetBlock:^{
+        
+        weakSelf.window.rootViewController = [[CUTabBarController alloc] init];
+        
+    }];
+    
+    self.window.rootViewController = oauthWebVC;
     
     [self.window makeKeyAndVisible];
     return YES;

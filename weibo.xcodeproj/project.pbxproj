@@ -44,6 +44,7 @@
 		FECCB77F1C73234B008F5D57 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB7791C73234B008F5D57 /* SecondViewController.m */; };
 		FECCB7801C73234B008F5D57 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB77B1C73234B008F5D57 /* ThreeViewController.m */; };
 		FECCB7811C73234B008F5D57 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB77D1C73234B008F5D57 /* FourViewController.m */; };
+		FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEEA8BA1C747D19009A0CA2 /* SSKeychain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		FECCB77C1C73234B008F5D57 /* FourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
 		FECCB77D1C73234B008F5D57 /* FourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		FECCB7821C73252F008F5D57 /* DefaultSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultSetting.h; sourceTree = "<group>"; };
+		FEEEA8B91C747D19009A0CA2 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		FEEEA8BA1C747D19009A0CA2 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +206,7 @@
 		FECCB7101C72E94F008F5D57 /* weibo */ = {
 			isa = PBXGroup;
 			children = (
+				FEEEA8B81C747CCF009A0CA2 /* DependFiles */,
 				FECCB74C1C73145E008F5D57 /* Delegate */,
 				FECCB7281C72F482008F5D57 /* Manager */,
 				FECCB7311C730757008F5D57 /* Controller */,
@@ -319,6 +323,23 @@
 				FE90869E1C741CD500235485 /* FirstSubVC */,
 			);
 			name = TabBarSubVC;
+			sourceTree = "<group>";
+		};
+		FEEEA8B81C747CCF009A0CA2 /* DependFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FEEEA8BC1C747D1E009A0CA2 /* SSKeychain */,
+			);
+			name = DependFiles;
+			sourceTree = "<group>";
+		};
+		FEEEA8BC1C747D1E009A0CA2 /* SSKeychain */ = {
+			isa = PBXGroup;
+			children = (
+				FEEEA8B91C747D19009A0CA2 /* SSKeychain.h */,
+				FEEEA8BA1C747D19009A0CA2 /* SSKeychain.m */,
+			);
+			name = SSKeychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,6 +490,7 @@
 				FECCB73C1C730775008F5D57 /* CUTabBarExtension.m in Sources */,
 				FECCB73D1C730775008F5D57 /* UIView+CUFrame.m in Sources */,
 				FECCB73B1C730775008F5D57 /* CUTabBarController.m in Sources */,
+				FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */,
 				FECCB73A1C730775008F5D57 /* CUButton.m in Sources */,
 				FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */,
 				FECCB72B1C72F49B008F5D57 /* FKAPIClient.m in Sources */,

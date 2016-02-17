@@ -14,6 +14,12 @@
 #define appSecret @"20eb41b24a5d5fbae8e0a69008bc99b8"
 /*******************新浪微博应用控制台的配置信息***********************/
 
+/*******************密码有关信息********************/
+#define serverName @"fancuixia"
+#define accountName @"guizhidao"
+/*******************密码有关信息********************/
+
+
 #define tabBarTitleColor RGB(184,184,184)
 #define tabBarTitleSelColor RGB(244,142,38)
 #define tabBarBackColor RGB(250,250,250)
