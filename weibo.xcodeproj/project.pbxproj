@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */; };
+		FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9086A41C74264E00235485 /* OAuthWebViewController.m */; };
 		FECCB7131C72E94F008F5D57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB7121C72E94F008F5D57 /* main.m */; };
 		FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB7151C72E94F008F5D57 /* AppDelegate.m */; };
 		FECCB71E1C72E950008F5D57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECCB71D1C72E950008F5D57 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 		48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB87C8DFC4D2ED6FF4665F5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF1C82ACD991EE34CD9FC32 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
+		FE9086A31C74264E00235485 /* OAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthWebViewController.h; sourceTree = "<group>"; };
+		FE9086A41C74264E00235485 /* OAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebViewController.m; sourceTree = "<group>"; };
 		FECCB70E1C72E94F008F5D57 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FECCB7121C72E94F008F5D57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FECCB7141C72E94F008F5D57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -134,6 +137,51 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FE90869E1C741CD500235485 /* FirstSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				FECCB7761C73234B008F5D57 /* FirstViewController.h */,
+				FECCB7771C73234B008F5D57 /* FirstViewController.m */,
+			);
+			name = FirstSubVC;
+			sourceTree = "<group>";
+		};
+		FE90869F1C741CDF00235485 /* SecondSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				FECCB7781C73234B008F5D57 /* SecondViewController.h */,
+				FECCB7791C73234B008F5D57 /* SecondViewController.m */,
+			);
+			name = SecondSubVC;
+			sourceTree = "<group>";
+		};
+		FE9086A01C741CE700235485 /* ThreeSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				FECCB77A1C73234B008F5D57 /* ThreeViewController.h */,
+				FECCB77B1C73234B008F5D57 /* ThreeViewController.m */,
+			);
+			name = ThreeSubVC;
+			sourceTree = "<group>";
+		};
+		FE9086A11C741CF100235485 /* FourSubVC */ = {
+			isa = PBXGroup;
+			children = (
+				FECCB77C1C73234B008F5D57 /* FourViewController.h */,
+				FECCB77D1C73234B008F5D57 /* FourViewController.m */,
+			);
+			name = FourSubVC;
+			sourceTree = "<group>";
+		};
+		FE9086A21C741F5200235485 /* 登录 */ = {
+			isa = PBXGroup;
+			children = (
+				FE9086A31C74264E00235485 /* OAuthWebViewController.h */,
+				FE9086A41C74264E00235485 /* OAuthWebViewController.m */,
+			);
+			name = "登录";
+			sourceTree = "<group>";
+		};
 		FECCB7051C72E94F008F5D57 = {
 			isa = PBXGroup;
 			children = (
@@ -160,7 +208,6 @@
 				FECCB7311C730757008F5D57 /* Controller */,
 				FECCB74B1C731447008F5D57 /* Images */,
 				FECCB71D1C72E950008F5D57 /* Assets.xcassets */,
-				FECCB7221C72E950008F5D57 /* Info.plist */,
 				FECCB7111C72E94F008F5D57 /* Supporting Files */,
 			);
 			path = weibo;
@@ -169,6 +216,7 @@
 		FECCB7111C72E94F008F5D57 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FECCB7221C72E950008F5D57 /* Info.plist */,
 				FECCB74A1C7311CF008F5D57 /* Setting.h */,
 				FECCB7121C72E94F008F5D57 /* main.m */,
 				FECCB7301C73022D008F5D57 /* weibo.pch */,
@@ -192,6 +240,7 @@
 		FECCB7311C730757008F5D57 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FE9086A21C741F5200235485 /* 登录 */,
 				FECCB7751C7322ED008F5D57 /* TabBarSubVC */,
 				FECCB7421C7307D3008F5D57 /* BaseVC */,
 				FECCB73E1C730794008F5D57 /* CusTabBarController */,
@@ -264,14 +313,10 @@
 		FECCB7751C7322ED008F5D57 /* TabBarSubVC */ = {
 			isa = PBXGroup;
 			children = (
-				FECCB7761C73234B008F5D57 /* FirstViewController.h */,
-				FECCB7771C73234B008F5D57 /* FirstViewController.m */,
-				FECCB7781C73234B008F5D57 /* SecondViewController.h */,
-				FECCB7791C73234B008F5D57 /* SecondViewController.m */,
-				FECCB77A1C73234B008F5D57 /* ThreeViewController.h */,
-				FECCB77B1C73234B008F5D57 /* ThreeViewController.m */,
-				FECCB77C1C73234B008F5D57 /* FourViewController.h */,
-				FECCB77D1C73234B008F5D57 /* FourViewController.m */,
+				FE9086A11C741CF100235485 /* FourSubVC */,
+				FE9086A01C741CE700235485 /* ThreeSubVC */,
+				FE90869F1C741CDF00235485 /* SecondSubVC */,
+				FE90869E1C741CD500235485 /* FirstSubVC */,
 			);
 			name = TabBarSubVC;
 			sourceTree = "<group>";
@@ -428,6 +473,7 @@
 				FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */,
 				FECCB72B1C72F49B008F5D57 /* FKAPIClient.m in Sources */,
 				FECCB7491C730CDF008F5D57 /* BaseSubViewController.m in Sources */,
+				FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */,
 				FECCB7131C72E94F008F5D57 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

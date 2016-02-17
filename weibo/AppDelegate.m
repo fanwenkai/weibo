@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "CUTabBarController.h"
+#import "OAuthWebViewController.h"//测试用
 
 @interface AppDelegate ()
 
@@ -23,6 +24,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     self.window.rootViewController = [[CUTabBarController alloc] init];
+//    self.window.rootViewController = [[OAuthWebViewController alloc] init];
     
     [self.window makeKeyAndVisible];
     return YES;

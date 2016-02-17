@@ -67,8 +67,8 @@
     tabBar.delegate = self;
     
     // 设置中间按钮
-    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
-    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
+    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
 
     [tabBar.centerButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
     

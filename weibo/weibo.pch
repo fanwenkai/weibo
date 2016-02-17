@@ -16,4 +16,6 @@
 #import "Setting.h"
 #import "DefaultSetting.h"
 
+#import <Masonry.h>
+
 #endif /* weibo_pch */
