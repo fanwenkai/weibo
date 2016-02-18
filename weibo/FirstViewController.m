@@ -14,5 +14,18 @@
     [super viewDidLoad];
     self.title = @"首页";
     self.view.backgroundColor = [UIColor whiteColor];
+    [self loadRemoteData];
 }
+
+- (void)loadRemoteData
+{
+    [[FKAPIClient getInstance] requestPublicTimeLineAndAccessToken:[self getToken]
+                                                          andCount:@"1"
+                                                           andPage:@"1"
+                                                          callBack:^(BaseResponse *result)
+     {
+        //
+    }];
+}
+
 @end

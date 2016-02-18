@@ -22,18 +22,8 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    OAuthWebViewController *oauthWebVC = [[OAuthWebViewController alloc] init];
-    
-    __weak typeof(self) weakSelf = self;
-    
-    [oauthWebVC oauthFinishSetBlock:^{
-        
-        weakSelf.window.rootViewController = [[CUTabBarController alloc] init];
-        
-    }];
-    
-    self.window.rootViewController = oauthWebVC;
+    self.isConnect = true;
+    self.window.rootViewController = [[CUTabBarController alloc] init];
     
     [self.window makeKeyAndVisible];
     return YES;

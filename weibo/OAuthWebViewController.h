@@ -6,12 +6,10 @@
 //  Copyright © 2016年 wenkai. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-typedef void(^OAuthCompletedBlock)();
 
-@interface OAuthWebViewController : UIViewController
+@interface OAuthWebViewController : BaseViewController
 
-- (void)oauthFinishSetBlock:(OAuthCompletedBlock)block;
 
 @end

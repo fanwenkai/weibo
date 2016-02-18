@@ -14,7 +14,6 @@ UIWebViewDelegate
 
 @property(nonatomic, strong) UIWebView *webView;
 
-@property(nonatomic, strong) OAuthCompletedBlock oauthBlock;
 
 @end
 
@@ -43,10 +42,6 @@ UIWebViewDelegate
     
 }
 
-- (void)oauthFinishSetBlock:(OAuthCompletedBlock)block
-{
-    _oauthBlock = block;
-}
 
 #pragma mark - UIWebView Delegate Methods
 
@@ -98,15 +93,13 @@ UIWebViewDelegate
             //如何从str1中获取到access_token
             NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&errorDic];
             
-            NSString *_access_token = [dictionary objectForKey:@"access_token"];
-            DLog(@"access token is:%@",_access_token);
-            
             //保存用户Token信息
-            [weakSelf saveUserMsg:_access_token];
+            [weakSelf saveUserMsg:dictionary];
             
-            if (_oauthBlock) {
-                weakSelf.oauthBlock();
-            }
+            //退出控制器
+            [weakSelf dismissViewControllerAnimated:YES completion:^{
+                DLog(@"登录成功");
+            }];
             
         }];
         
@@ -114,9 +107,22 @@ UIWebViewDelegate
     }
 }
 
-- (void)saveUserMsg:(NSString *)accessToken
+- (void)saveUserMsg:(NSDictionary *)userInfo
 {
-    [SSKeychain setPassword:accessToken forService:serverName account:accountName];
+    NSString *token = userInfo[@"access_token"];
+    NSString *expires = [NSString stringWithFormat:@"%@",userInfo[@"expires_in"]];
+    DLog(@"expires = %@",expires);
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:[expires doubleValue]];
+    NSString *expiresTimeStr = [NSString stringWithFormat:@"%.0f",[date timeIntervalSince1970]];
+    
+    @try {
+        [SSKeychain setPassword:token forService:serverName account:tokenName];
+        [SSKeychain setPassword:expiresTimeStr forService:serverName account:expiresInName];
+    }
+    @catch (NSException *exception) {
+        DLog(@"保存Token,Expires异常");
+    }
 }
 
 @end

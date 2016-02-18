@@ -9,8 +9,7 @@
 #ifndef Url_h
 #define Url_h
 
-static NSString *BaseUrl = @"https://api.weibo.com/";
-
-
+//返回最新的公共微博
+static NSString *PUBLIC_TIMELINE = @"https://api.weibo.com/2/statuses/public_timeline.json";
 
 #endif /* Url_h */

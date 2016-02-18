@@ -16,7 +16,8 @@
 
 /*******************密码有关信息********************/
 #define serverName @"fancuixia"
-#define accountName @"guizhidao"
+#define tokenName @"token7"
+#define expiresInName @"expiresinname1"
 /*******************密码有关信息********************/
 
 

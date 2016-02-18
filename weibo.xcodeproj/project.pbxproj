@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */; };
+		FE7275B31C75778700822CBF /* JKAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7275B21C75778700822CBF /* JKAlert.m */; };
+		FE7275B51C7589B000822CBF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE7275B41C7589B000822CBF /* Security.framework */; };
 		FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE9086A41C74264E00235485 /* OAuthWebViewController.m */; };
 		FECCB7131C72E94F008F5D57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB7121C72E94F008F5D57 /* main.m */; };
 		FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FECCB7151C72E94F008F5D57 /* AppDelegate.m */; };
@@ -51,6 +53,9 @@
 		48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB87C8DFC4D2ED6FF4665F5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF1C82ACD991EE34CD9FC32 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
+		FE7275B11C75778700822CBF /* JKAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKAlert.h; sourceTree = "<group>"; };
+		FE7275B21C75778700822CBF /* JKAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKAlert.m; sourceTree = "<group>"; };
+		FE7275B41C7589B000822CBF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FE9086A31C74264E00235485 /* OAuthWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthWebViewController.h; sourceTree = "<group>"; };
 		FE9086A41C74264E00235485 /* OAuthWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebViewController.m; sourceTree = "<group>"; };
 		FECCB70E1C72E94F008F5D57 /* weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE7275B51C7589B000822CBF /* Security.framework in Frameworks */,
 				2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,6 +132,7 @@
 		0E4DBEADCC9921E5045D395C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE7275B41C7589B000822CBF /* Security.framework */,
 				48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */,
 			);
 			name = Frameworks;
@@ -138,6 +145,15 @@
 				FDF1C82ACD991EE34CD9FC32 /* Pods-weibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FE7275B01C75776F00822CBF /* JKAlert */ = {
+			isa = PBXGroup;
+			children = (
+				FE7275B11C75778700822CBF /* JKAlert.h */,
+				FE7275B21C75778700822CBF /* JKAlert.m */,
+			);
+			name = JKAlert;
 			sourceTree = "<group>";
 		};
 		FE90869E1C741CD500235485 /* FirstSubVC */ = {
@@ -328,6 +344,7 @@
 		FEEEA8B81C747CCF009A0CA2 /* DependFiles */ = {
 			isa = PBXGroup;
 			children = (
+				FE7275B01C75776F00822CBF /* JKAlert */,
 				FEEEA8BC1C747D1E009A0CA2 /* SSKeychain */,
 			);
 			name = DependFiles;
@@ -490,6 +507,7 @@
 				FECCB73C1C730775008F5D57 /* CUTabBarExtension.m in Sources */,
 				FECCB73D1C730775008F5D57 /* UIView+CUFrame.m in Sources */,
 				FECCB73B1C730775008F5D57 /* CUTabBarController.m in Sources */,
+				FE7275B31C75778700822CBF /* JKAlert.m in Sources */,
 				FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */,
 				FECCB73A1C730775008F5D57 /* CUButton.m in Sources */,
 				FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */,

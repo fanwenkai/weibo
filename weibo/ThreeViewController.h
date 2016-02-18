@@ -6,8 +6,8 @@
 //  Copyright © 2016年 wenkai. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ThreeViewController : UIViewController
+@interface ThreeViewController : BaseViewController
 
 @end

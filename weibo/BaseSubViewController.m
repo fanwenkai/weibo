@@ -14,10 +14,34 @@
 
 @implementation BaseSubViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
+-(AppDelegate *)appDelegate
+{
+    return [super appDelegate];
+}
+
+-(void)showHUD:(NSString*)title isDim:(BOOL)isDim
+{
+    [super showHUD:title isDim:isDim];
+}
+
+- (void)hideHUD
+{
+    [super hideHUD];
+}
+
+- (NSString *)getToken
+{
+    return [super getToken];
+}
+
+- (BOOL)isValidedExpiresID
+{
+    return [super isValidedExpiresID];
+}
 
 @end

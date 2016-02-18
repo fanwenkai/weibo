@@ -10,4 +10,18 @@
 
 @interface BaseSubViewController : BaseViewController
 
+-(AppDelegate *)appDelegate;
+
+//显示进度条
+-(void)showHUD:(NSString*)title isDim:(BOOL)isDim;
+
+//隐藏进度条
+- (void)hideHUD;
+
+//获取Token
+- (NSString *)getToken;
+
+//获取令牌失效时间
+- (BOOL)isValidedExpiresID;
+
 @end

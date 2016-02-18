@@ -7,6 +7,7 @@
 //
 
 #import "FKAPIClient.h"
+#import "AppDelegate.h"
 
 #import "Url.h"
 
@@ -52,18 +53,32 @@
         
         [_manager setSecurityPolicy:[AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey]];
         
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        
         [_manager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
             switch (status) {
                 case AFNetworkReachabilityStatusReachableViaWWAN:
+                {
                     NSLog(@"3G网络已连接");
+                    delegate.isConnect = true;
+                }
                     break;
                 case AFNetworkReachabilityStatusReachableViaWiFi:
+                {
                     NSLog(@"WiFi网络已连接");
+                    delegate.isConnect = true;
+                }
                     break;
                 case AFNetworkReachabilityStatusNotReachable:
+                {
                     NSLog(@"网络连接失败");
+                    delegate.isConnect = false;
+                }
                     break;
                 default:
+                {
+                    delegate.isConnect = false;
+                }
                     break;
             }
         }];
@@ -143,5 +158,19 @@
 
 @implementation FKAPIClient(Sina)
 
+- (NSURLSessionTask *)requestPublicTimeLineAndAccessToken:(NSString *)token
+                                             andCount:(NSString *)count
+                                              andPage:(NSString *)page
+                                             callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:count forKey:@"count"];
+    [tempDic setValue:page forKey:@"page"];
+    
+    BaseResponse *response   = [[BaseResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:PUBLIC_TIMELINE params:tempDic response:response callback:callBack];
+    return dataTask;
+}
 
 @end

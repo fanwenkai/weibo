@@ -24,6 +24,18 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
 @end
 
 @interface FKAPIClient (Sina)
-
+/**
+ *  @Description 返回最新的公共微博
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param count 单页返回的记录条数，默认为50。
+ *  @param page 返回结果的页码，默认为1。
+ *
+ *  @return NSURLSession
+ */
+- (NSURLSessionTask *)requestPublicTimeLineAndAccessToken:(NSString *)token
+                                             andCount:(NSString *)count
+                                              andPage:(NSString *)page
+                                             callBack:(SDK_CALLBACK)callBack;
 
 @end
