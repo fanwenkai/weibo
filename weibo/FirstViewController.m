@@ -8,7 +8,17 @@
 
 #import "FirstViewController.h"
 
+@interface FirstViewController ()
+{
+    NSInteger _unitCount;//每次请求的条数
+    NSInteger _nextCursor;//记录刷新的位置
+}
+
+
+@end
+
 @implementation FirstViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
