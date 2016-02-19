@@ -26,4 +26,14 @@
 #define tabBarBackColor RGB(250,250,250)
 #define tabBarItemShadeColor RGB(238,238,224)
 
+#define kLightGrayColor [UIColor lightGrayColor]
+
+
+/*********************字体大小*************************/
+#define kSmallFontSize 12
+#define kSmallFont8Size 8
+#define kGeneralFontSize 14
+#define kBigFontSize 16
+/*********************字体大小*************************/
+
 #endif /* DefaultSetting_h */

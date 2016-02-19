@@ -11,6 +11,8 @@
 
 #import "BaseResponse.h"
 
+#import "PublicTimeLineResponse.h"
+
 typedef void(^SDK_CALLBACK) (BaseResponse *result);
 
 @interface FKAPIClient : NSObject

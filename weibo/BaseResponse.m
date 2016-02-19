@@ -18,19 +18,20 @@
         _msg = @"请求异常";
         return _ret == 0 ? YES : NO;
     }
-    @try {
-        _ret = [dict[@"returncode"] integerValue];
-        _msg = dict[@"returnmessage"];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"取值:\n%s\n%@", __FUNCTION__, exception);
-        _ret = RET_DATA_FORMAT_ERROR;
-        _msg = @"请求异常";
-    }
-    @finally {
-        NSLog(@"服务器返回提示信息(MSG):%@",_msg);
-    }
-    return self.ret == 0 ? YES : NO;
+    return YES;
+//    @try {
+//        _ret = [dict[@"returncode"] integerValue];
+//        _msg = dict[@"returnmessage"];
+//    }
+//    @catch (NSException *exception) {
+//        NSLog(@"取值:\n%s\n%@", __FUNCTION__, exception);
+//        _ret = RET_DATA_FORMAT_ERROR;
+//        _msg = @"请求异常";
+//    }
+//    @finally {
+//        NSLog(@"服务器返回提示信息(MSG):%@",_msg);
+//    }
+//    return self.ret == 0 ? YES : NO;
 }
 
 @end

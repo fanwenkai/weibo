@@ -168,7 +168,7 @@
     [tempDic setValue:count forKey:@"count"];
     [tempDic setValue:page forKey:@"page"];
     
-    BaseResponse *response   = [[BaseResponse alloc] init];
+    PublicTimeLineResponse *response   = [[PublicTimeLineResponse alloc] init];
     NSURLSessionTask *dataTask = [self getUrl:PUBLIC_TIMELINE params:tempDic response:response callback:callBack];
     return dataTask;
 }
