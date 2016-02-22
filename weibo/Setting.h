@@ -25,6 +25,9 @@
 //格式化字符串
 #define STR_FORMAT(format ,str) [NSString stringWithFormat:format ,str]
 
+//返回NSURL
+#define STR_URL(str) ([NSURL URLWithString:str])
+
 ////自定义打印信息打印出行号
 #ifndef __OPTIMIZE__
 #define NSLog(...) NSLog(__VA_ARGS__)

@@ -8,6 +8,11 @@
 
 #import "BaseModel.h"
 #import "UserModel.h"
+
+@protocol PICURLSModel <NSObject>
+
+@end
+
 /**
  *头像
  *姓名
@@ -29,4 +34,15 @@
 
 @property(nonatomic, strong) UserModel *user;//用户信息
 
+@property(nonatomic, strong) NSArray<PICURLSModel> *pic_urls;
+
 @end
+
+
+@interface PICURLSModel : BaseModel
+
+@property(nonatomic, strong) NSString *thumbnail_pic;//图片地址
+
+@end
+
+

@@ -53,7 +53,7 @@
     
     AppDelegate *delegate = [self appDelegate];
     if (!delegate.isConnect) {
-        JKAlert *alert = [[JKAlert alloc] initWithTitle:@"网络连接" andMessage:@"" style:STYLE_ALERT];
+        JKAlert *alert = [[JKAlert alloc] initWithTitle:@"网络出错" andMessage:@"" style:STYLE_ALERT];
         [alert addButton:ITEM_OK withTitle:@"确定" handler:^(JKAlertItem *item) {
             //
         }];

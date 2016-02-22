@@ -11,3 +11,9 @@
 @implementation PublicTimeLineModel
 
 @end
+
+
+@implementation PICURLSModel
+
+
+@end

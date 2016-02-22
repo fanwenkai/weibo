@@ -57,7 +57,7 @@
     indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, 30);
     indexLabel.textAlignment = NSTextAlignmentCenter;
     indexLabel.textColor = [UIColor whiteColor];
-    indexLabel.font = [UIFont boldSystemFontOfSize:20];
+    indexLabel.font = [UIFont boldSystemFontOfSize:14];
     indexLabel.backgroundColor = [UIColor clearColor];
     if (self.imageCount > 1) {
         indexLabel.text = [NSString stringWithFormat:@"1/%ld", (long)self.imageCount];
@@ -68,6 +68,7 @@
     // 2.保存按钮
     UIButton *saveButton = [[UIButton alloc] init];
     [saveButton setTitle:@"保存" forState:UIControlStateNormal];
+    saveButton.titleLabel.font = [UIFont systemFontOfSize:14];
     [saveButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     saveButton.backgroundColor = [UIColor colorWithRed:0.1f green:0.1f blue:0.1f alpha:0.90f];
     saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 50, 25);

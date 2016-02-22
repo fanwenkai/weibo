@@ -37,6 +37,11 @@
 
 
 /**
+ *底部View，评论 、转发、点赞
+ */
+@property(nonatomic, strong) UIView *menuView;
+
+/**
  *  底部分割线
  */
 

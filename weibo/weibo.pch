@@ -18,6 +18,7 @@
 #import "SSKeychain.h"
 #import "JKAlert.h"
 
+#import <UIImageView+WebCache.h>
 #import <Masonry.h>
 
 #endif /* weibo_pch */

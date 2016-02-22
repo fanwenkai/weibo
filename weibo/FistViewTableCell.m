@@ -29,6 +29,9 @@ SDPhotoBrowserDelegate
 
 #define UserNameColor     UIColorFromRGB(0xeca55d)
 
+#define LinkColor RGB(30, 144, 255)
+#define TextColor RGB(51, 51, 51)
+
 #define HeadImageSize     CGSizeMake(34.f,  34.f)
 
 #define BigImageSize      CGSizeMake(160.f, 80.f)
@@ -87,12 +90,13 @@ SDPhotoBrowserDelegate
     _bodyLabel = [SkyLinkLabel new];
     [self.contentView addSubview:_bodyLabel];
     
-    _bodyLabel.textColor=[UIColor blackColor];
+    _bodyLabel.textColor = TextColor;
     _bodyLabel.font=[UIFont fontWithName:@"Avenir-Light" size:kSmallFontSize];
+    _bodyLabel.linkColor = LinkColor;
     //以下几个属性必须设置
     _bodyLabel.numberOfLines=0;
     _bodyLabel.textAlignment=NSTextAlignmentLeft;
-    [_bodyLabel setPreferredMaxLayoutWidth:(SCREEN_WIDTH - 42)];
+    [_bodyLabel setPreferredMaxLayoutWidth:(SCREEN_WIDTH - 24)];
     [_bodyLabel setLineBreakMode:NSLineBreakByWordWrapping];
     
     
@@ -119,7 +123,7 @@ SDPhotoBrowserDelegate
     [_bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_headImageView.mas_bottom).offset(15);
         make.left.equalTo(_headImageView.mas_left);
-        make.right.equalTo(self.contentView.mas_right).offset(-30);
+        make.right.equalTo(self.contentView.mas_right).offset(-12);
         make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom).offset(-10);
     }];
     
@@ -159,8 +163,8 @@ SDPhotoBrowserDelegate
         imgV.userInteractionEnabled=YES;
         imgV.tag=idx;
         [imgV addGestureRecognizer:[self addTapGestureRecognizer]];
-        [imgV setImage:[UIImage imageNamed:url]];
-//        [imgV sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageProgressiveDownload];
+//        [imgV setImage:[UIImage imageNamed:url]];
+        [imgV sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageProgressiveDownload];
         
         [self.imageViewArray addObject:imgV];
     }];
@@ -192,7 +196,6 @@ SDPhotoBrowserDelegate
             make.top.equalTo(_bodyLabel.mas_bottom).offset(5);
             make.left.equalTo(self.contentView.mas_left).offset(12);
             make.size.mas_equalTo(BigImageSize);
-            //可能存在bug待调整
             make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom).offset(-10);
         }];
     }
@@ -235,8 +238,8 @@ SDPhotoBrowserDelegate
             count++;
         }
         
-        [previousView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom).offset(-10);
+        [_bottomLineView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.greaterThanOrEqualTo(previousView.mas_bottom).offset(10);
         }];
     }
     
