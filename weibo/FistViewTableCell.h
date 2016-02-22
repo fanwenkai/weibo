@@ -40,6 +40,9 @@
  *底部View，评论 、转发、点赞
  */
 @property(nonatomic, strong) UIView *menuView;
+@property(nonatomic, strong) UIButton *repostsBtn;//转发按钮
+@property(nonatomic, strong) UIButton *commentsBtn;//评论按钮
+@property(nonatomic, strong) UIButton *attitudesBtn;//点赞按钮
 
 /**
  *  底部分割线
