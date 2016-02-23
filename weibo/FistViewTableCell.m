@@ -23,7 +23,10 @@ SDPhotoBrowserDelegate
 
 @property (nonatomic,strong ) NSMutableArray * imageViewArray;
 
+@property(nonatomic, strong) MenuMethod menuMethod;
+
 @end
+
 
 #define kHeadImageViewTag 1000
 
@@ -31,6 +34,10 @@ SDPhotoBrowserDelegate
 
 #define LinkColor RGB(30, 144, 255)
 #define TextColor RGB(51, 51, 51)
+#define MenuBGColor RGB(235, 235, 235)
+#define MenuTextColor RGB(181, 181, 181)
+
+#define MenuHeight 30.f
 
 #define HeadImageSize     CGSizeMake(34.f,  34.f)
 
@@ -62,6 +69,11 @@ SDPhotoBrowserDelegate
         
     }
     return self;
+}
+
+- (void)mentMethodCallBack:(MenuMethod)callBack
+{
+    _menuMethod = callBack;
 }
 
 - (void)setupCell
@@ -100,9 +112,11 @@ SDPhotoBrowserDelegate
     [_bodyLabel setLineBreakMode:NSLineBreakByWordWrapping];
     
     
-    _bottomLineView = [UIView new];
-    [self.contentView addSubview:_bottomLineView];
-    _bottomLineView.backgroundColor = kLightGrayColor;
+    //添加功能View
+    _menuView = [UIView new];
+    [self.contentView addSubview:_menuView];
+    
+    _menuView.backgroundColor = MenuBGColor;
     
     [_headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(12);
@@ -124,15 +138,68 @@ SDPhotoBrowserDelegate
         make.top.equalTo(_headImageView.mas_bottom).offset(15);
         make.left.equalTo(_headImageView.mas_left);
         make.right.equalTo(self.contentView.mas_right).offset(-12);
-        make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom).offset(-10);
+        make.bottom.lessThanOrEqualTo(_menuView.mas_top).offset(-10);
     }];
     
-    [_bottomLineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_menuView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView.mas_left);
         make.right.equalTo(self.contentView.mas_right);
-        make.bottom.equalTo(self.contentView.mas_bottom);
-        make.height.mas_equalTo(1);
+        make.bottom.equalTo(self.contentView.mas_bottom).offset(-10);
+        make.height.mas_equalTo(MenuHeight);
     }];
+    
+    
+    //添加功能按钮
+    _repostsBtn = [UIButton new];
+    [_menuView addSubview:_repostsBtn];
+    
+    _repostsBtn.tag = kRepostBtnTag;
+    [_repostsBtn setImage:PNG(@"reposts_nor") forState:UIControlStateNormal];
+    [_repostsBtn setTitle:@"0" forState:UIControlStateNormal];
+    _repostsBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
+    [_repostsBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
+    [_repostsBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _commentsBtn = [UIButton new];
+    [_menuView addSubview:_commentsBtn];
+    
+    _commentsBtn.tag = kCommentBtnTag;
+    [_commentsBtn setImage:PNG(@"comments_nor") forState:UIControlStateNormal];
+    [_commentsBtn setTitle:@"0" forState:UIControlStateNormal];
+    _commentsBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
+    [_commentsBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
+    [_commentsBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _attitudesBtn = [UIButton new];
+    [_menuView addSubview:_attitudesBtn];
+    
+    _attitudesBtn.tag = kAttributeBtnTag;
+    [_attitudesBtn setImage:PNG(@"attitudes_nor") forState:UIControlStateNormal];
+    [_attitudesBtn setImage:PNG(@"attitudes_sel") forState:UIControlStateSelected];
+    [_attitudesBtn setTitle:@"0" forState:UIControlStateNormal];
+    _attitudesBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
+    [_attitudesBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
+    [_attitudesBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [_repostsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_menuView);
+        make.left.equalTo(_menuView.mas_left);
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH/3, MenuHeight));
+    }];
+    
+    [_commentsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_menuView);
+        make.left.equalTo(_repostsBtn.mas_right);
+        make.size.equalTo(_repostsBtn);
+    }];
+    
+    [_attitudesBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(_menuView);
+        make.left.equalTo(_commentsBtn.mas_right);
+        make.size.equalTo(_repostsBtn);
+    }];
+    
 }
 
 -(void)setImageswithURLs:(NSArray*) urls
@@ -163,7 +230,6 @@ SDPhotoBrowserDelegate
         imgV.userInteractionEnabled=YES;
         imgV.tag=idx;
         [imgV addGestureRecognizer:[self addTapGestureRecognizer]];
-//        [imgV setImage:[UIImage imageNamed:url]];
         [imgV sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil options:SDWebImageProgressiveDownload];
         
         [self.imageViewArray addObject:imgV];
@@ -196,8 +262,10 @@ SDPhotoBrowserDelegate
             make.top.equalTo(_bodyLabel.mas_bottom).offset(5);
             make.left.equalTo(self.contentView.mas_left).offset(12);
             make.size.mas_equalTo(BigImageSize);
-            make.bottom.lessThanOrEqualTo(self.contentView.mas_bottom).offset(-10);
+//            make.bottom.lessThanOrEqualTo(_menuView.mas_top).offset(-10);
+            make.bottom.equalTo(self.contentView.mas_bottom).offset(-50);
         }];
+        
     }
     //三张图为一行 为小图显示 九图为3列
     else if (imageCount>1&&imageCount<=9)
@@ -237,12 +305,10 @@ SDPhotoBrowserDelegate
             
             count++;
         }
-        
-        [_bottomLineView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.greaterThanOrEqualTo(previousView.mas_bottom).offset(10);
+        [_menuView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(previousView.mas_bottom).offset(10);
         }];
     }
-    
 }
 
 -(UITapGestureRecognizer*)addTapGestureRecognizer
@@ -279,6 +345,39 @@ SDPhotoBrowserDelegate
 {
     NSString *urlStr =[self.urlArray[index] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"bmiddle"];
     return [NSURL URLWithString:urlStr];
+}
+
+#pragma mark - 功能按钮点击方法
+- (void)menuClickedMethod:(UIButton *)sender
+{
+    switch (sender.tag) {
+        case kAttributeBtnTag:
+        {
+            DLog(@"点赞");
+            if (_menuMethod) {
+                _menuMethod(sender);
+            }
+        }
+            break;
+        case kCommentBtnTag:
+        {
+            DLog(@"评论");
+            if (_menuMethod) {
+                _menuMethod(sender);
+            }
+        }
+            break;
+        case kRepostBtnTag:
+        {
+            DLog(@"转发");
+            if (_menuMethod) {
+                _menuMethod(sender);
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 @end

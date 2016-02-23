@@ -9,7 +9,14 @@
 #import "PublicTimeLineModel.h"
 
 @implementation PublicTimeLineModel
-
+- (instancetype)initWithDictionary:(NSDictionary *)dict error:(NSError *__autoreleasing *)err
+{
+    self = [super initWithDictionary:dict error:err];
+    if (self) {
+        _isAttitude = @"0";
+    }
+    return self;
+}
 @end
 
 

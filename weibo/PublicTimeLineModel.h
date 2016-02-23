@@ -36,6 +36,8 @@
 
 @property(nonatomic, strong) NSArray<PICURLSModel> *pic_urls;
 
+@property(nonatomic, strong) NSString<Ignore> *isAttitude;
+
 @end
 
 

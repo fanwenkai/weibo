@@ -124,11 +124,6 @@ static FistViewTableCell *calcuCell = nil;
      PublicTimeLineModel* tempData = _dataArr[indexPath.section];
     calcuCell.userNameLabel.text = tempData.user.screen_name;
     calcuCell.timeLabel.text = tempData.created_at;
-    /*!
-     *  @author Sky
-     *
-     *  @brief  由于用到了图文混排所以这个里文字需要传入attributedText
-     */
     calcuCell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
     
    [calcuCell.headImageView sd_setImageWithURL:STR_URL(tempData.user.profile_image_url)];
@@ -151,23 +146,12 @@ static FistViewTableCell *calcuCell = nil;
     PublicTimeLineModel* tempData = _dataArr[indexPath.section];
     cell.userNameLabel.text = tempData.user.screen_name;
     cell.timeLabel.text = tempData.created_at;
-    /*!
-     *  @author Sky
-     *
-     *  @brief  由于用到了图文混排所以这个里文字需要传入attributedText
-     */
     cell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
     
     
     [cell.headImageView sd_setImageWithURL:STR_URL(tempData.user.profile_image_url)];
     
     [cell setImageswithURLs:[self picUrls:tempData.pic_urls]];
-    
-    /*!
-     *  @author Sky
-     *
-     *  @brief  一个点击的回调就不多写了具体的逻辑大家可以按需求添加
-     */
     cell.bodyLabel.linkTapHandler=^(SkyLinkType linkType, NSString *string, NSRange range) {
         
         NSString* typeStr=nil;
@@ -199,24 +183,47 @@ static FistViewTableCell *calcuCell = nil;
         
     };
     
-    
+    [cell mentMethodCallBack:^(UIButton *sender) {
+        if (sender.tag == kRepostBtnTag) {
+            DLog(@"进入转发回调");
+        }
+        else if (sender.tag == kCommentBtnTag){
+            DLog(@"进入评论回调");
+        }
+        else {
+            DLog(@"进入点赞回调");
+            if (!sender.selected) {
+                [[FKAPIClient getInstance] requestAttitudesCreateAndAccessToken:[self getToken]
+                                                                    andAttitude:@"simle"
+                                                                          andID:tempData.idstr
+                                                                       callBack:^(BaseResponse *result)
+                 {
+                     //
+                 }];
+            }
+            else{
+                [[FKAPIClient getInstance] requestAttitudesDestroyAndAccessToken:[self getToken]
+                                                                    andAttitude:@"simle"
+                                                                          andID:tempData.idstr
+                                                                       callBack:^(BaseResponse *result)
+                 {
+                     //
+                 }];
+            }
+        }
+    }];
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.layer.transform = CATransform3DMakeScale(0.1, 0.1, 1);
-    //设置动画时间为0.25秒,xy方向缩放的最终值为1
-    [UIView animateWithDuration:0.25 animations:^{
-        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
-    }];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    cell.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1);
+//    //设置动画时间为0.25秒,xy方向缩放的最终值为1
+//    [UIView animateWithDuration:0.25 animations:^{
+//        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
+//    }];
+//}
 
 
 @end

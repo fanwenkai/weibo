@@ -9,6 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SkyLinkLabel.h"
 
+/***********功能按钮Tag**********/
+#define kRepostBtnTag 1000
+#define kCommentBtnTag 1001
+#define kAttributeBtnTag 1002
+
+typedef void(^MenuMethod)(UIButton *sender);
 
 @interface FistViewTableCell : UITableViewCell
 
@@ -44,15 +50,12 @@
 @property(nonatomic, strong) UIButton *commentsBtn;//评论按钮
 @property(nonatomic, strong) UIButton *attitudesBtn;//点赞按钮
 
-/**
- *  底部分割线
- */
-
-@property(nonatomic, strong) UIView *bottomLineView;
 
 -(void)setImageswithURLs:(NSArray*) urls;
 
 //添加对图片的约束
 -(void)layoutImagesInContentView;
+
+- (void)mentMethodCallBack:(MenuMethod)callBack;
 
 @end
