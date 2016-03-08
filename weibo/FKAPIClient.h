@@ -43,27 +43,23 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
  *  @Description 点赞
  *
  *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
- *  @param attitude @“simle”
  *  @param ID 填写微博 id ，一串数字。
  *
  *  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)requestAttitudesCreateAndAccessToken:(NSString *)token
-                                                   andAttitude:(NSString *)attitude
-                                                         andID:(NSString *)ID
+- (NSURLSessionTask *)requestFriendShipsCreateAndAccessToken:(NSString *)token
+                                                         andUID:(NSString *)UID
                                                       callBack:(SDK_CALLBACK)callBack;
 /**
  *  @Description 取消点赞
  *
  *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
- *  @param attitude @“simle”
  *  @param ID 填写微博 id ，一串数字。
  *
  *  @return NSURLSessionTask
  */
-- (NSURLSessionTask *)requestAttitudesDestroyAndAccessToken:(NSString *)token
-                                                    andAttitude:(NSString *)attitude
-                                                          andID:(NSString *)ID
+- (NSURLSessionTask *)requestFriendShipsDestroyAndAccessToken:(NSString *)token
+                                                          andUID:(NSString *)UID
                                                        callBack:(SDK_CALLBACK)callBack;
 
 @end

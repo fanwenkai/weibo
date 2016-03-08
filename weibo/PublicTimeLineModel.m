@@ -13,7 +13,7 @@
 {
     self = [super initWithDictionary:dict error:err];
     if (self) {
-        _isAttitude = @"0";
+        _isAttitude = @"1";
     }
     return self;
 }

@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 #import "FistViewTableCell.h"
 
+#define kAttributeNorStatue @"1"
+#define kAttributeSelStatue @"2"
+
 @interface FirstViewController ()<
 UITableViewDataSource,
 UITableViewDelegate
@@ -143,7 +146,7 @@ static FistViewTableCell *calcuCell = nil;
 {
     FistViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fistViewTableCell" forIndexPath:indexPath];
     
-    PublicTimeLineModel* tempData = _dataArr[indexPath.section];
+    __block PublicTimeLineModel* tempData = _dataArr[indexPath.section];
     cell.userNameLabel.text = tempData.user.screen_name;
     cell.timeLabel.text = tempData.created_at;
     cell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
@@ -152,6 +155,18 @@ static FistViewTableCell *calcuCell = nil;
     [cell.headImageView sd_setImageWithURL:STR_URL(tempData.user.profile_image_url)];
     
     [cell setImageswithURLs:[self picUrls:tempData.pic_urls]];
+    
+//    [cell.repostsBtn setTitle:tempData.reposts_count forState:UIControlStateNormal];
+//    [cell.commentsBtn setTitle:tempData.comments_count forState:UIControlStateNormal];
+//    [cell.attitudesBtn setTitle:tempData.attitudes_count forState:UIControlStateNormal];
+    
+    if ([tempData.isAttitude isEqualToString:kAttributeNorStatue]) {
+        cell.attitudesBtn.selected = NO;
+    }
+    else{
+        cell.attitudesBtn.selected = YES;
+    }
+    
     cell.bodyLabel.linkTapHandler=^(SkyLinkType linkType, NSString *string, NSRange range) {
         
         NSString* typeStr=nil;
@@ -193,37 +208,31 @@ static FistViewTableCell *calcuCell = nil;
         else {
             DLog(@"进入点赞回调");
             if (!sender.selected) {
-                [[FKAPIClient getInstance] requestAttitudesCreateAndAccessToken:[self getToken]
-                                                                    andAttitude:@"simle"
-                                                                          andID:tempData.idstr
-                                                                       callBack:^(BaseResponse *result)
-                 {
-                     //
-                 }];
+                tempData.isAttitude = kAttributeSelStatue;
+                sender.selected = !sender.selected;
+                [[FKAPIClient getInstance] requestFriendShipsCreateAndAccessToken:[self getToken]
+                                                                           andUID:tempData.idstr
+                                                                         callBack:^(BaseResponse *result)
+                {
+                    //关注
+                }];
+                
             }
             else{
-                [[FKAPIClient getInstance] requestAttitudesDestroyAndAccessToken:[self getToken]
-                                                                    andAttitude:@"simle"
-                                                                          andID:tempData.idstr
-                                                                       callBack:^(BaseResponse *result)
+                tempData.isAttitude = kAttributeNorStatue;
+                sender.selected = !sender.selected;
+                [[FKAPIClient getInstance] requestFriendShipsDestroyAndAccessToken:[self getToken]
+                                                                            andUID:tempData.idstr
+                                                                          callBack:^(BaseResponse *result)
                  {
-                     //
-                 }];
+                    //取消关注
+                }];
             }
         }
     }];
     
     return cell;
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    cell.layer.transform = CATransform3DMakeScale(0.8, 0.8, 1);
-//    //设置动画时间为0.25秒,xy方向缩放的最终值为1
-//    [UIView animateWithDuration:0.25 animations:^{
-//        cell.layer.transform = CATransform3DMakeScale(1, 1, 1);
-//    }];
-//}
 
 
 @end

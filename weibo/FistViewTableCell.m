@@ -155,7 +155,7 @@ SDPhotoBrowserDelegate
     
     _repostsBtn.tag = kRepostBtnTag;
     [_repostsBtn setImage:PNG(@"reposts_nor") forState:UIControlStateNormal];
-    [_repostsBtn setTitle:@"0" forState:UIControlStateNormal];
+    [_repostsBtn setTitle:@" 转发" forState:UIControlStateNormal];
     _repostsBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
     [_repostsBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
     [_repostsBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
@@ -165,7 +165,7 @@ SDPhotoBrowserDelegate
     
     _commentsBtn.tag = kCommentBtnTag;
     [_commentsBtn setImage:PNG(@"comments_nor") forState:UIControlStateNormal];
-    [_commentsBtn setTitle:@"0" forState:UIControlStateNormal];
+    [_commentsBtn setTitle:@" 评论" forState:UIControlStateNormal];
     _commentsBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
     [_commentsBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
     [_commentsBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
@@ -176,9 +176,10 @@ SDPhotoBrowserDelegate
     _attitudesBtn.tag = kAttributeBtnTag;
     [_attitudesBtn setImage:PNG(@"attitudes_nor") forState:UIControlStateNormal];
     [_attitudesBtn setImage:PNG(@"attitudes_sel") forState:UIControlStateSelected];
-    [_attitudesBtn setTitle:@"0" forState:UIControlStateNormal];
+    [_attitudesBtn setTitle:@" 关注" forState:UIControlStateNormal];
     _attitudesBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
     [_attitudesBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
+    [_attitudesBtn setTitleColor:UserNameColor forState:UIControlStateSelected];
     [_attitudesBtn addTarget:self action:@selector(menuClickedMethod:) forControlEvents:UIControlEventTouchUpInside];
     
     
