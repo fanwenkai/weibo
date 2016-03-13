@@ -21,4 +21,9 @@ static NSString *ATTITUDES_CREATE = @"https://api.weibo.com/2/friendships/create
 //取消微博关注 POST
 static NSString *ATTITUDES_DESTROY = @"https://api.weibo.com/2/friendships/destroy.json";
 
+//根据用户ID获取用户信息
+static NSString *USERS_SHOW = @"https://api.weibo.com/2/users/show.json";
+
+//获取当前登录用户的收藏列表
+static NSString *FAVOURITES = @"https://api.weibo.com/2/favorites.json";
 #endif /* Url_h */

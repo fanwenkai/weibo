@@ -21,6 +21,9 @@
 //获取Token
 - (NSString *)getToken;
 
+//获取UID
+- (NSString *)getUid;
+
 //获取令牌失效时间
 - (BOOL)isValidedExpiresID;
 

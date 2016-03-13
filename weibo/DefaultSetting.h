@@ -18,6 +18,7 @@
 #define serverName @"fancuixia"
 #define tokenName @"token7"
 #define expiresInName @"expiresinname1"
+#define uidName @"uid"
 /*******************密码有关信息********************/
 
 
@@ -27,6 +28,11 @@
 #define tabBarItemShadeColor RGB(238,238,224)
 
 #define kLightGrayColor [UIColor lightGrayColor]
+
+#define kBGColor RGB(235, 235, 235)
+
+#define kTextColor RGB(51, 51, 51)
+#define kGrayTextColor RGB(153, 153, 153)
 
 
 /*********************字体大小*************************/

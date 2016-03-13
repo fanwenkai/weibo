@@ -111,6 +111,7 @@ UIWebViewDelegate
 {
     NSString *token = userInfo[@"access_token"];
     NSString *expires = [NSString stringWithFormat:@"%@",userInfo[@"expires_in"]];
+    NSString *uid = userInfo[@"uid"];
     DLog(@"expires = %@",expires);
     
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:[expires doubleValue]];
@@ -119,6 +120,7 @@ UIWebViewDelegate
     @try {
         [SSKeychain setPassword:token forService:serverName account:tokenName];
         [SSKeychain setPassword:expiresTimeStr forService:serverName account:expiresInName];
+        [SSKeychain setPassword:uid forService:serverName account:uidName];
     }
     @catch (NSException *exception) {
         DLog(@"保存Token,Expires异常");

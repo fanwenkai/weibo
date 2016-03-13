@@ -24,6 +24,17 @@
 {
     [super viewDidLoad];
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+        self.extendedLayoutIncludesOpaqueBars = NO;
+        self.navigationController.navigationBar.translucent = NO;
+        self.modalPresentationCapturesStatusBarAppearance = NO;
+        
+    }
+    
+    self.view.backgroundColor = kBGColor;
+    
     BOOL isValided = [self isValidedExpiresID];
     
     AppDelegate *delegate = [self appDelegate];
@@ -96,6 +107,18 @@
     }
     
     return token;
+}
+
+- (NSString *)getUid
+{
+    NSError *error = nil;
+    NSString *uid = [SSKeychain passwordForService:serverName account:uidName error:&error];
+    
+    if (error.code == SSKeychainErrorNotFound) {
+        DLog(@"uid get fialed");
+        return nil;
+    }
+    return uid;
 }
 
 - (BOOL)isValidedExpiresID

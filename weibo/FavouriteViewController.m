@@ -1,48 +1,59 @@
 //
-//  FirstViewController.m
-//  FKTabBarController
+//  FavouriteViewController.m
+//  weibo
 //
-//  Created by 你懂得的神 on 16/2/2.
+//  Created by wenkai on 16/3/13.
 //  Copyright © 2016年 wenkai. All rights reserved.
 //
 
-#import "FirstViewController.h"
-#import "FistViewTableCell.h"
+#import "FavouriteViewController.h"
+#import "FavouriteViewTableCell.h"
+
+@interface FavouriteViewController ()<
+UITableViewDataSource,
+UITableViewDelegate
+>
+
+@property(nonatomic, strong) UITableView *tableView;
+@property(nonatomic, strong) NSArray *dataArr;//保存最新微博的数据
+@end
 
 #define kAttributeNorStatue @"1"
 #define kAttributeSelStatue @"2"
 
-@interface FirstViewController ()<
-UITableViewDataSource,
-UITableViewDelegate
->
-{
-//    NSInteger _unitCount;//每次请求的条数
-//    NSInteger _nextCursor;//记录刷新的位置
-}
-
-@property(nonatomic, strong) UITableView *tableView;
-
-@property(nonatomic, strong) NSArray *dataArr;//保存最新微博的数据
-
-
-@end
-
 static FistViewTableCell *calcuCell = nil;
 
-@implementation FirstViewController
+@implementation FavouriteViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"首页";
+    self.title = @"我的收藏";
     [self initView];
-    [self loadRemoteData];
+    [self loadRemouteData];
 }
 
-- (void)initView
+#pragma mark - 加载数据
+- (void)loadRemouteData
 {
-    
+    __weak typeof(self) weakSelf = self;
+    [weakSelf showHUD:@"加载中..." isDim:NO];
+    [[FKAPIClient getInstance] requestFavouritesAndAccessToken:[self getToken]
+                                                      andCount:@"50" andPage:@"1"
+                                                      callBack:^(BaseResponse *result)
+    {
+        if (result.ret == RET_SUCCESSED) {
+            FavouritesResponse *tempResponse = (FavouritesResponse *)result;
+            weakSelf.dataArr = [NSArray arrayWithArray:tempResponse.dataArr];
+            [weakSelf.tableView reloadData];
+        }
+        else{
+            DLog(@"请求数据出错");
+        }
+        [weakSelf hideHUD];
+    }];
+}
+
+- (void)initView{
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:_tableView];
     _tableView.backgroundColor = kBGColor;
@@ -55,37 +66,9 @@ static FistViewTableCell *calcuCell = nil;
     _tableView.delegate = self;
     _tableView.allowsSelection = NO;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [_tableView registerClass:[FistViewTableCell class] forCellReuseIdentifier:@"fistViewTableCell"];
+    [_tableView registerClass:[FavouriteViewTableCell class] forCellReuseIdentifier:@"favouriteViewTableCell"];
     
     calcuCell = [[FistViewTableCell alloc] init];
-    
-}
-
-- (void)loadRemoteData
-{
-    //如果没有登录跳过下面语句
-    if (![self isValidedExpiresID]) {
-        DLog(@"FirstViewController No Login");
-        return ;
-    }
-    
-    __weak typeof(self) weakSelf = self;
-    [weakSelf showHUD:@"加载中..." isDim:NO];
-    [[FKAPIClient getInstance] requestPublicTimeLineAndAccessToken:[self getToken]
-                                                          andCount:@"50"
-                                                           andPage:@"1"
-                                                          callBack:^(BaseResponse *result)
-     {
-         if (result.ret == RET_SUCCESSED) {
-             PublicTimeLineResponse *tempResponse = (PublicTimeLineResponse *)result;
-             weakSelf.dataArr = [NSArray arrayWithArray:tempResponse.dataArr];
-             [weakSelf.tableView reloadData];
-         }
-         else{
-             DLog(@"请求数据出错");
-         }
-         [weakSelf hideHUD];
-    }];
 }
 
 - (NSArray *)picUrls:(NSArray *)picUrlsArr
@@ -125,12 +108,12 @@ static FistViewTableCell *calcuCell = nil;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     PublicTimeLineModel* tempData = _dataArr[indexPath.section];
+    PublicTimeLineModel* tempData = _dataArr[indexPath.section];
     calcuCell.userNameLabel.text = tempData.user.screen_name;
     calcuCell.timeLabel.text = tempData.created_at;
     calcuCell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
     
-   [calcuCell.headImageView sd_setImageWithURL:STR_URL(tempData.user.profile_image_url)];
+    [calcuCell.headImageView sd_setImageWithURL:STR_URL(tempData.user.profile_image_url)];
     
     [calcuCell setImageswithURLs:[self picUrls:tempData.pic_urls]];
     
@@ -145,7 +128,7 @@ static FistViewTableCell *calcuCell = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FistViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fistViewTableCell" forIndexPath:indexPath];
+    FavouriteViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favouriteViewTableCell" forIndexPath:indexPath];
     
     __block PublicTimeLineModel* tempData = _dataArr[indexPath.section];
     cell.userNameLabel.text = tempData.user.screen_name;
@@ -157,9 +140,9 @@ static FistViewTableCell *calcuCell = nil;
     
     [cell setImageswithURLs:[self picUrls:tempData.pic_urls]];
     
-//    [cell.repostsBtn setTitle:tempData.reposts_count forState:UIControlStateNormal];
-//    [cell.commentsBtn setTitle:tempData.comments_count forState:UIControlStateNormal];
-//    [cell.attitudesBtn setTitle:tempData.attitudes_count forState:UIControlStateNormal];
+    //    [cell.repostsBtn setTitle:tempData.reposts_count forState:UIControlStateNormal];
+    //    [cell.commentsBtn setTitle:tempData.comments_count forState:UIControlStateNormal];
+    //    [cell.attitudesBtn setTitle:tempData.attitudes_count forState:UIControlStateNormal];
     
     if ([tempData.isAttitude isEqualToString:kAttributeNorStatue]) {
         cell.attitudesBtn.selected = NO;
@@ -214,9 +197,9 @@ static FistViewTableCell *calcuCell = nil;
                 [[FKAPIClient getInstance] requestFriendShipsCreateAndAccessToken:[self getToken]
                                                                            andUID:tempData.idstr
                                                                          callBack:^(BaseResponse *result)
-                {
-                    //关注
-                }];
+                 {
+                     //关注
+                 }];
                 
             }
             else{
@@ -226,14 +209,13 @@ static FistViewTableCell *calcuCell = nil;
                                                                             andUID:tempData.idstr
                                                                           callBack:^(BaseResponse *result)
                  {
-                    //取消关注
-                }];
+                     //取消关注
+                 }];
             }
         }
     }];
     
     return cell;
 }
-
 
 @end

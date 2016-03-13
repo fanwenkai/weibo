@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */; };
+		CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */; };
+		CE9F446F1C9557270013BAE8 /* UsersShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446E1C9557270013BAE8 /* UsersShowModel.m */; };
+		CE9F44721C9565E20013BAE8 /* FourViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F44711C9565E20013BAE8 /* FourViewTableCell.m */; };
+		CE9F44751C9597870013BAE8 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F44741C9597870013BAE8 /* FavouriteViewController.m */; };
+		CE9F44791C959A780013BAE8 /* FavouritesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F44781C959A780013BAE8 /* FavouritesModel.m */; };
+		CE9F447C1C959A910013BAE8 /* FavouritesResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F447B1C959A910013BAE8 /* FavouritesResponse.m */; };
+		CE9F447F1C959C0D0013BAE8 /* FavouriteViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F447E1C959C0D0013BAE8 /* FavouriteViewTableCell.m */; };
 		FE10318C1C76B7C000A27B23 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1031861C76B7C000A27B23 /* SDBrowserImageView.m */; };
 		FE10318D1C76B7C000A27B23 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1031881C76B7C000A27B23 /* SDPhotoBrowser.m */; };
 		FE10318E1C76B7C000A27B23 /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE10318B1C76B7C000A27B23 /* SDWaitingView.m */; };
@@ -73,6 +80,20 @@
 
 /* Begin PBXFileReference section */
 		48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE9F446A1C9557030013BAE8 /* UsersShowResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowResponse.h; sourceTree = "<group>"; };
+		CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersShowResponse.m; sourceTree = "<group>"; };
+		CE9F446D1C9557270013BAE8 /* UsersShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowModel.h; sourceTree = "<group>"; };
+		CE9F446E1C9557270013BAE8 /* UsersShowModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersShowModel.m; sourceTree = "<group>"; };
+		CE9F44701C9565E20013BAE8 /* FourViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourViewTableCell.h; sourceTree = "<group>"; };
+		CE9F44711C9565E20013BAE8 /* FourViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourViewTableCell.m; sourceTree = "<group>"; };
+		CE9F44731C9597870013BAE8 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
+		CE9F44741C9597870013BAE8 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		CE9F44771C959A780013BAE8 /* FavouritesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesModel.h; sourceTree = "<group>"; };
+		CE9F44781C959A780013BAE8 /* FavouritesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesModel.m; sourceTree = "<group>"; };
+		CE9F447A1C959A910013BAE8 /* FavouritesResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouritesResponse.h; sourceTree = "<group>"; };
+		CE9F447B1C959A910013BAE8 /* FavouritesResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouritesResponse.m; sourceTree = "<group>"; };
+		CE9F447D1C959C0D0013BAE8 /* FavouriteViewTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewTableCell.h; sourceTree = "<group>"; };
+		CE9F447E1C959C0D0013BAE8 /* FavouriteViewTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewTableCell.m; sourceTree = "<group>"; };
 		CEB87C8DFC4D2ED6FF4665F5 /* Pods-weibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.debug.xcconfig"; sourceTree = "<group>"; };
 		FDF1C82ACD991EE34CD9FC32 /* Pods-weibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-weibo/Pods-weibo.release.xcconfig"; sourceTree = "<group>"; };
 		FE1031851C76B7C000A27B23 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
@@ -202,6 +223,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE9F44761C9597A20013BAE8 /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				CE9F447D1C959C0D0013BAE8 /* FavouriteViewTableCell.h */,
+				CE9F447E1C959C0D0013BAE8 /* FavouriteViewTableCell.m */,
+				CE9F44731C9597870013BAE8 /* FavouriteViewController.h */,
+				CE9F44741C9597870013BAE8 /* FavouriteViewController.m */,
+			);
+			name = "我的收藏";
+			sourceTree = "<group>";
+		};
 		FE1031841C76B7B200A27B23 /* SDPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +268,10 @@
 				FE1031A21C7708CB00A27B23 /* PublicTimeLineModel.m */,
 				FE1031A71C771D0800A27B23 /* UserModel.h */,
 				FE1031A81C771D0800A27B23 /* UserModel.m */,
+				CE9F446D1C9557270013BAE8 /* UsersShowModel.h */,
+				CE9F446E1C9557270013BAE8 /* UsersShowModel.m */,
+				CE9F44771C959A780013BAE8 /* FavouritesModel.h */,
+				CE9F44781C959A780013BAE8 /* FavouritesModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -247,6 +283,10 @@
 				FECCB72D1C72FD15008F5D57 /* BaseResponse.m */,
 				FE1031A41C770C5F00A27B23 /* PublicTimeLineResponse.h */,
 				FE1031A51C770C5F00A27B23 /* PublicTimeLineResponse.m */,
+				CE9F446A1C9557030013BAE8 /* UsersShowResponse.h */,
+				CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */,
+				CE9F447A1C959A910013BAE8 /* FavouritesResponse.h */,
+				CE9F447B1C959A910013BAE8 /* FavouritesResponse.m */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -338,8 +378,11 @@
 		FE9086A11C741CF100235485 /* FourSubVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE9F44761C9597A20013BAE8 /* 我的收藏 */,
 				FECCB77C1C73234B008F5D57 /* FourViewController.h */,
 				FECCB77D1C73234B008F5D57 /* FourViewController.m */,
+				CE9F44701C9565E20013BAE8 /* FourViewTableCell.h */,
+				CE9F44711C9565E20013BAE8 /* FourViewTableCell.m */,
 			);
 			name = FourSubVC;
 			sourceTree = "<group>";
@@ -651,26 +694,33 @@
 				FE10318D1C76B7C000A27B23 /* SDPhotoBrowser.m in Sources */,
 				FECCB77E1C73234B008F5D57 /* FirstViewController.m in Sources */,
 				FECCB7801C73234B008F5D57 /* ThreeViewController.m in Sources */,
+				CE9F44791C959A780013BAE8 /* FavouritesModel.m in Sources */,
+				CE9F44721C9565E20013BAE8 /* FourViewTableCell.m in Sources */,
 				FECCB72E1C72FD15008F5D57 /* BaseResponse.m in Sources */,
 				FECCB7411C7307CC008F5D57 /* BaseViewController.m in Sources */,
 				FE10318C1C76B7C000A27B23 /* SDBrowserImageView.m in Sources */,
+				CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */,
 				FECCB73C1C730775008F5D57 /* CUTabBarExtension.m in Sources */,
 				FECCB73D1C730775008F5D57 /* UIView+CUFrame.m in Sources */,
 				FECCB73B1C730775008F5D57 /* CUTabBarController.m in Sources */,
 				FE7275B31C75778700822CBF /* JKAlert.m in Sources */,
 				FE1031A31C7708CB00A27B23 /* PublicTimeLineModel.m in Sources */,
+				CE9F446F1C9557270013BAE8 /* UsersShowModel.m in Sources */,
 				FE1031941C76B7EE00A27B23 /* NSAttributedString+Emotion.m in Sources */,
 				FE1031991C76B85700A27B23 /* FistViewTableCell.m in Sources */,
 				FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */,
+				CE9F447C1C959A910013BAE8 /* FavouritesResponse.m in Sources */,
 				FECCB73A1C730775008F5D57 /* CUButton.m in Sources */,
 				FE1031A91C771D0800A27B23 /* UserModel.m in Sources */,
 				FECCB7161C72E94F008F5D57 /* AppDelegate.m in Sources */,
 				FE1031951C76B7EE00A27B23 /* SkyLinkLabel.m in Sources */,
+				CE9F447F1C959C0D0013BAE8 /* FavouriteViewTableCell.m in Sources */,
 				FE1031A01C77088100A27B23 /* BaseModel.m in Sources */,
 				FE1031A61C770C5F00A27B23 /* PublicTimeLineResponse.m in Sources */,
 				FE10318E1C76B7C000A27B23 /* SDWaitingView.m in Sources */,
 				FECCB72B1C72F49B008F5D57 /* FKAPIClient.m in Sources */,
 				FECCB7491C730CDF008F5D57 /* BaseSubViewController.m in Sources */,
+				CE9F44751C9597870013BAE8 /* FavouriteViewController.m in Sources */,
 				FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */,
 				FECCB7131C72E94F008F5D57 /* main.m in Sources */,
 			);
@@ -768,10 +818,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Jiaowang Information Technology Co., Ltd.";
 				GCC_PREFIX_HEADER = $SRCROOT/weibo/weibo.pch;
 				INFOPLIST_FILE = weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuixia.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "48afc7b7-9990-4855-81bd-b8ddf22fe562";
 			};
 			name = Debug;
 		};
@@ -785,10 +836,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Jiaowang Information Technology Co., Ltd.";
 				GCC_PREFIX_HEADER = $SRCROOT/weibo/weibo.pch;
 				INFOPLIST_FILE = weibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cuixia.weibo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "48afc7b7-9990-4855-81bd-b8ddf22fe562";
 			};
 			name = Release;
 		};

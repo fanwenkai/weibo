@@ -199,4 +199,32 @@
     return dataTask;
 }
 
+- (NSURLSessionTask *)requestUsersShowAndAccessToken:(NSString *)token
+                                              andUID:(NSString *)UID
+                                            callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:UID forKey:@"uid"];
+    
+    UsersShowResponse *response   = [[UsersShowResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:USERS_SHOW params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
+- (NSURLSessionTask *)requestFavouritesAndAccessToken:(NSString *)token
+                                             andCount:(NSString *)count
+                                              andPage:(NSString *)page
+                                             callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:count forKey:@"count"];
+    [tempDic setValue:page forKey:@"page"];
+    
+    FavouritesResponse *response   = [[FavouritesResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:FAVOURITES params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
 @end

@@ -39,6 +39,12 @@
     return [super getToken];
 }
 
+- (NSString *)getUid
+{
+    return [super getUid];
+    
+}
+
 - (BOOL)isValidedExpiresID
 {
     return [super isValidedExpiresID];
