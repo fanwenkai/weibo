@@ -26,4 +26,10 @@ static NSString *USERS_SHOW = @"https://api.weibo.com/2/users/show.json";
 
 //获取当前登录用户的收藏列表
 static NSString *FAVOURITES = @"https://api.weibo.com/2/favorites.json";
+
+//获取用户的关注列表
+static NSString *FRIENDSHIPS_FRIENDS = @"https://api.weibo.com/2/friendships/friends.json";
+
+//获取某个用户最新发表的微博列表
+static NSString *STATUES_USER_TIMELINE = @"https://api.weibo.com/2/statuses/user_timeline.json";
 #endif /* Url_h */

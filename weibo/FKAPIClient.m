@@ -227,4 +227,34 @@
     return dataTask;
 }
 
+- (NSURLSessionTask *)requestFriendShipsFriendsAndAccessToken:(NSString *)token
+                                               andUID:(NSString *)UID
+                                             andCount:(NSString *)count
+                                             callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:count forKey:@"count"];
+    [tempDic setValue:UID forKey:@"uid"];
+    
+    BaseResponse *response   = [[BaseResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:FRIENDSHIPS_FRIENDS params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
+- (NSURLSessionTask *)requestStatuesUserTimeLineAndAccessToken:(NSString *)token
+                                                        andUID:(NSString *)UID
+                                                      andCount:(NSString *)count
+                                                      callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:count forKey:@"count"];
+    [tempDic setValue:UID forKey:@"uid"];
+    
+    StatuesUserTimeLineResponse *response   = [[StatuesUserTimeLineResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:STATUES_USER_TIMELINE params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
 @end

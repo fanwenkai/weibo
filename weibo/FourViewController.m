@@ -9,6 +9,7 @@
 #import "FourViewController.h"
 #import "FourViewTableCell.h"
 #import "FavouriteViewController.h"
+#import "MySendWeiBoViewController.h"
 
 @interface FourViewController ()<
 UITableViewDataSource,
@@ -161,12 +162,11 @@ UITableViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FourViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fourViewTableCell" forIndexPath:indexPath];
-    DLog(@"22");
     if (indexPath.section == 0) {
         cell.textLabel.text = @"我的收藏";
     }
     else if (indexPath.section == 1){
-        cell.textLabel.text = @"我的粉丝";
+        cell.textLabel.text = @"我的微博";
     }
     else if (indexPath.section == 2){
         cell.textLabel.text = @"我的关注";
@@ -183,7 +183,10 @@ UITableViewDelegate
         [self.navigationController pushViewController:favouriteVC animated:YES];
     }
     else if (indexPath.section == 1){
-        //我的粉丝
+        //我的微博
+        MySendWeiBoViewController *mySendWeiBoVC = [[MySendWeiBoViewController alloc] init];
+        [self.navigationController pushViewController:mySendWeiBoVC animated:YES];
+        
     }
     else if (indexPath.section == 2){
         //我的关注

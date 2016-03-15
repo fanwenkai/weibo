@@ -14,6 +14,7 @@
 #import "PublicTimeLineResponse.h"
 #import "UsersShowResponse.h"
 #import "FavouritesResponse.h"
+#import "StatuesUserTimeLineResponse.h"
 
 typedef void(^SDK_CALLBACK) (BaseResponse *result);
 
@@ -88,4 +89,34 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
                                                  andCount:(NSString *)count
                                                   andPage:(NSString *)page
                                                  callBack:(SDK_CALLBACK)callBack;
+
+
+/**
+ *  @Description 获取用户的关注列表
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param UID 需要查询的用户UID。
+ *  @param count 单页返回的记录条数，默认为50，最大不超过200。
+ *
+ *  @return NSURLSessionTask
+ */
+
+- (NSURLSessionTask *)requestFriendShipsFriendsAndAccessToken:(NSString *)token
+                                                       andUID:(NSString *)UID
+                                                     andCount:(NSString *)count
+                                                     callBack:(SDK_CALLBACK)callBack;
+
+/**
+ *  @Description 获取某个用户最新发表的微博列表
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param UID 需要查询的用户UID。
+ *  @param count 单页返回的记录条数，默认为50，最大不超过200。
+ *
+ *  @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestStatuesUserTimeLineAndAccessToken:(NSString *)token
+                                                        andUID:(NSString *)UID
+                                                      andCount:(NSString *)count
+                                                      callBack:(SDK_CALLBACK)callBack;
 @end

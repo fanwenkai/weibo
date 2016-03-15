@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */; };
+		CE8996B71C984C0D008ACDC7 /* StatuesUserTimeLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */; };
+		CE8996BA1C984C37008ACDC7 /* StatuesUserTimeLineResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */; };
+		CE8996BD1C984CE3008ACDC7 /* MySendWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */; };
+		CE8996C01C984D9A008ACDC7 /* MySendWeiBoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996BF1C984D9A008ACDC7 /* MySendWeiBoCell.m */; };
 		CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */; };
 		CE9F446F1C9557270013BAE8 /* UsersShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446E1C9557270013BAE8 /* UsersShowModel.m */; };
 		CE9F44721C9565E20013BAE8 /* FourViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F44711C9565E20013BAE8 /* FourViewTableCell.m */; };
@@ -80,6 +84,14 @@
 
 /* Begin PBXFileReference section */
 		48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8996B51C984C0D008ACDC7 /* StatuesUserTimeLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuesUserTimeLineModel.h; sourceTree = "<group>"; };
+		CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatuesUserTimeLineModel.m; sourceTree = "<group>"; };
+		CE8996B81C984C37008ACDC7 /* StatuesUserTimeLineResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuesUserTimeLineResponse.h; sourceTree = "<group>"; };
+		CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatuesUserTimeLineResponse.m; sourceTree = "<group>"; };
+		CE8996BB1C984CE3008ACDC7 /* MySendWeiBoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySendWeiBoViewController.h; sourceTree = "<group>"; };
+		CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySendWeiBoViewController.m; sourceTree = "<group>"; };
+		CE8996BE1C984D9A008ACDC7 /* MySendWeiBoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySendWeiBoCell.h; sourceTree = "<group>"; };
+		CE8996BF1C984D9A008ACDC7 /* MySendWeiBoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySendWeiBoCell.m; sourceTree = "<group>"; };
 		CE9F446A1C9557030013BAE8 /* UsersShowResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowResponse.h; sourceTree = "<group>"; };
 		CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersShowResponse.m; sourceTree = "<group>"; };
 		CE9F446D1C9557270013BAE8 /* UsersShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowModel.h; sourceTree = "<group>"; };
@@ -223,6 +235,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CE8996AA1C9840CC008ACDC7 /* 我的微博 */ = {
+			isa = PBXGroup;
+			children = (
+				CE8996BB1C984CE3008ACDC7 /* MySendWeiBoViewController.h */,
+				CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */,
+				CE8996BE1C984D9A008ACDC7 /* MySendWeiBoCell.h */,
+				CE8996BF1C984D9A008ACDC7 /* MySendWeiBoCell.m */,
+			);
+			name = "我的微博";
+			sourceTree = "<group>";
+		};
+		CE8996AB1C9840E8008ACDC7 /* 我的关注 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "我的关注";
+			sourceTree = "<group>";
+		};
 		CE9F44761C9597A20013BAE8 /* 我的收藏 */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +302,8 @@
 				CE9F446E1C9557270013BAE8 /* UsersShowModel.m */,
 				CE9F44771C959A780013BAE8 /* FavouritesModel.h */,
 				CE9F44781C959A780013BAE8 /* FavouritesModel.m */,
+				CE8996B51C984C0D008ACDC7 /* StatuesUserTimeLineModel.h */,
+				CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -287,6 +319,8 @@
 				CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */,
 				CE9F447A1C959A910013BAE8 /* FavouritesResponse.h */,
 				CE9F447B1C959A910013BAE8 /* FavouritesResponse.m */,
+				CE8996B81C984C37008ACDC7 /* StatuesUserTimeLineResponse.h */,
+				CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -378,6 +412,8 @@
 		FE9086A11C741CF100235485 /* FourSubVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE8996AB1C9840E8008ACDC7 /* 我的关注 */,
+				CE8996AA1C9840CC008ACDC7 /* 我的微博 */,
 				CE9F44761C9597A20013BAE8 /* 我的收藏 */,
 				FECCB77C1C73234B008F5D57 /* FourViewController.h */,
 				FECCB77D1C73234B008F5D57 /* FourViewController.m */,
@@ -701,11 +737,14 @@
 				FE10318C1C76B7C000A27B23 /* SDBrowserImageView.m in Sources */,
 				CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */,
 				FECCB73C1C730775008F5D57 /* CUTabBarExtension.m in Sources */,
+				CE8996C01C984D9A008ACDC7 /* MySendWeiBoCell.m in Sources */,
 				FECCB73D1C730775008F5D57 /* UIView+CUFrame.m in Sources */,
 				FECCB73B1C730775008F5D57 /* CUTabBarController.m in Sources */,
+				CE8996BA1C984C37008ACDC7 /* StatuesUserTimeLineResponse.m in Sources */,
 				FE7275B31C75778700822CBF /* JKAlert.m in Sources */,
 				FE1031A31C7708CB00A27B23 /* PublicTimeLineModel.m in Sources */,
 				CE9F446F1C9557270013BAE8 /* UsersShowModel.m in Sources */,
+				CE8996B71C984C0D008ACDC7 /* StatuesUserTimeLineModel.m in Sources */,
 				FE1031941C76B7EE00A27B23 /* NSAttributedString+Emotion.m in Sources */,
 				FE1031991C76B85700A27B23 /* FistViewTableCell.m in Sources */,
 				FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */,
@@ -722,6 +761,7 @@
 				FECCB7491C730CDF008F5D57 /* BaseSubViewController.m in Sources */,
 				CE9F44751C9597870013BAE8 /* FavouriteViewController.m in Sources */,
 				FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */,
+				CE8996BD1C984CE3008ACDC7 /* MySendWeiBoViewController.m in Sources */,
 				FECCB7131C72E94F008F5D57 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

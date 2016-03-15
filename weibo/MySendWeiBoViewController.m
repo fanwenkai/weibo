@@ -1,21 +1,22 @@
 //
-//  FavouriteViewController.m
+//  MySendWeiBoViewController.m
 //  weibo
 //
-//  Created by wenkai on 16/3/13.
+//  Created by wenkai on 16/3/15.
 //  Copyright © 2016年 wenkai. All rights reserved.
 //
 
-#import "FavouriteViewController.h"
-#import "FavouriteViewTableCell.h"
+#import "MySendWeiBoViewController.h"
+#import "MySendWeiBoCell.h"
 
-@interface FavouriteViewController ()<
+@interface MySendWeiBoViewController ()<
 UITableViewDataSource,
 UITableViewDelegate
 >
 
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) NSArray *dataArr;//保存最新微博的数据
+
 @end
 
 #define kAttributeNorStatue @"1"
@@ -23,11 +24,11 @@ UITableViewDelegate
 
 static FistViewTableCell *calcuCell = nil;
 
-@implementation FavouriteViewController
+@implementation MySendWeiBoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"我的收藏";
+    self.title = @"我的微博";
     [self initView];
     [self loadRemouteData];
 }
@@ -37,12 +38,13 @@ static FistViewTableCell *calcuCell = nil;
 {
     __weak typeof(self) weakSelf = self;
     [weakSelf showHUD:@"加载中..." isDim:NO];
-    [[FKAPIClient getInstance] requestFavouritesAndAccessToken:[self getToken]
-                                                      andCount:@"50" andPage:@"1"
-                                                      callBack:^(BaseResponse *result)
+    [[FKAPIClient getInstance] requestStatuesUserTimeLineAndAccessToken:[self getToken]
+                                                                 andUID:[self getUid]
+                                                               andCount:@"200"
+                                                               callBack:^(BaseResponse *result)
     {
         if (result.ret == RET_SUCCESSED) {
-            FavouritesResponse *tempResponse = (FavouritesResponse *)result;
+            StatuesUserTimeLineResponse *tempResponse = (StatuesUserTimeLineResponse *)result;
             weakSelf.dataArr = [NSArray arrayWithArray:tempResponse.dataArr];
             [weakSelf.tableView reloadData];
         }
@@ -51,8 +53,8 @@ static FistViewTableCell *calcuCell = nil;
         }
         [weakSelf hideHUD];
     }];
+    
 }
-
 - (void)initView{
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:_tableView];
@@ -66,9 +68,9 @@ static FistViewTableCell *calcuCell = nil;
     _tableView.delegate = self;
     _tableView.allowsSelection = NO;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [_tableView registerClass:[FavouriteViewTableCell class] forCellReuseIdentifier:@"favouriteViewTableCell"];
+    [_tableView registerClass:[MySendWeiBoCell class] forCellReuseIdentifier:@"mySendWeiBoCell"];
     
-    calcuCell = [[FistViewTableCell alloc] init];
+    calcuCell = [[MySendWeiBoCell alloc] init];
 }
 
 - (NSArray *)picUrls:(NSArray *)picUrlsArr
@@ -108,7 +110,7 @@ static FistViewTableCell *calcuCell = nil;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FavouritesModel* tempData = _dataArr[indexPath.section];
+    StatuesUserTimeLineModel* tempData = _dataArr[indexPath.section];
     calcuCell.userNameLabel.text = tempData.user.screen_name;
     calcuCell.timeLabel.text = tempData.created_at;
     calcuCell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
@@ -128,9 +130,9 @@ static FistViewTableCell *calcuCell = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FavouriteViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favouriteViewTableCell" forIndexPath:indexPath];
+    MySendWeiBoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mySendWeiBoCell" forIndexPath:indexPath];
     
-    __block FavouritesModel* tempData = _dataArr[indexPath.section];
+    __block StatuesUserTimeLineModel* tempData = _dataArr[indexPath.section];
     cell.userNameLabel.text = tempData.user.screen_name;
     cell.timeLabel.text = tempData.created_at;
     cell.bodyLabel.attributedText = [NSAttributedString emotionAttributedStringFrom:tempData.text attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:kSmallFontSize]}];
@@ -217,5 +219,6 @@ static FistViewTableCell *calcuCell = nil;
     
     return cell;
 }
+
 
 @end
