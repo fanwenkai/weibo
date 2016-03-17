@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 
 @interface UserModel : BaseModel
+
 @property(nonatomic, strong) NSString *created_at;//用户创建（注册）时间
 @property(nonatomic, strong) NSString *des;//用户个人描述
 @property(nonatomic, strong) NSString *name;//友好显示名称

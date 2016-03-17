@@ -237,7 +237,7 @@
     [tempDic setValue:count forKey:@"count"];
     [tempDic setValue:UID forKey:@"uid"];
     
-    BaseResponse *response   = [[BaseResponse alloc] init];
+    FriendShipsFriendsResponse *response   = [[FriendShipsFriendsResponse alloc] init];
     NSURLSessionTask *dataTask = [self getUrl:FRIENDSHIPS_FRIENDS params:tempDic response:response callback:callBack];
     return dataTask;
 }

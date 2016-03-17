@@ -12,6 +12,10 @@
 		CE8996BA1C984C37008ACDC7 /* StatuesUserTimeLineResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */; };
 		CE8996BD1C984CE3008ACDC7 /* MySendWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */; };
 		CE8996C01C984D9A008ACDC7 /* MySendWeiBoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996BF1C984D9A008ACDC7 /* MySendWeiBoCell.m */; };
+		CE8E978E1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E978D1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.m */; };
+		CE8E97911C9AE01C00BB2E6F /* FriendShipsFriendsResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E97901C9AE01C00BB2E6F /* FriendShipsFriendsResponse.m */; };
+		CE8E97941C9AE18C00BB2E6F /* MyAttributeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E97931C9AE18C00BB2E6F /* MyAttributeViewController.m */; };
+		CE8E97971C9AE79100BB2E6F /* MyAttributeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8E97961C9AE79100BB2E6F /* MyAttributeTableCell.m */; };
 		CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */; };
 		CE9F446F1C9557270013BAE8 /* UsersShowModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F446E1C9557270013BAE8 /* UsersShowModel.m */; };
 		CE9F44721C9565E20013BAE8 /* FourViewTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9F44711C9565E20013BAE8 /* FourViewTableCell.m */; };
@@ -92,6 +96,14 @@
 		CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySendWeiBoViewController.m; sourceTree = "<group>"; };
 		CE8996BE1C984D9A008ACDC7 /* MySendWeiBoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySendWeiBoCell.h; sourceTree = "<group>"; };
 		CE8996BF1C984D9A008ACDC7 /* MySendWeiBoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySendWeiBoCell.m; sourceTree = "<group>"; };
+		CE8E978C1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendShipsFriendsModel.h; sourceTree = "<group>"; };
+		CE8E978D1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendShipsFriendsModel.m; sourceTree = "<group>"; };
+		CE8E978F1C9AE01C00BB2E6F /* FriendShipsFriendsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendShipsFriendsResponse.h; sourceTree = "<group>"; };
+		CE8E97901C9AE01C00BB2E6F /* FriendShipsFriendsResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendShipsFriendsResponse.m; sourceTree = "<group>"; };
+		CE8E97921C9AE18C00BB2E6F /* MyAttributeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttributeViewController.h; sourceTree = "<group>"; };
+		CE8E97931C9AE18C00BB2E6F /* MyAttributeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttributeViewController.m; sourceTree = "<group>"; };
+		CE8E97951C9AE79100BB2E6F /* MyAttributeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAttributeTableCell.h; sourceTree = "<group>"; };
+		CE8E97961C9AE79100BB2E6F /* MyAttributeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAttributeTableCell.m; sourceTree = "<group>"; };
 		CE9F446A1C9557030013BAE8 /* UsersShowResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowResponse.h; sourceTree = "<group>"; };
 		CE9F446B1C9557030013BAE8 /* UsersShowResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersShowResponse.m; sourceTree = "<group>"; };
 		CE9F446D1C9557270013BAE8 /* UsersShowModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersShowModel.h; sourceTree = "<group>"; };
@@ -249,6 +261,10 @@
 		CE8996AB1C9840E8008ACDC7 /* 我的关注 */ = {
 			isa = PBXGroup;
 			children = (
+				CE8E97921C9AE18C00BB2E6F /* MyAttributeViewController.h */,
+				CE8E97931C9AE18C00BB2E6F /* MyAttributeViewController.m */,
+				CE8E97951C9AE79100BB2E6F /* MyAttributeTableCell.h */,
+				CE8E97961C9AE79100BB2E6F /* MyAttributeTableCell.m */,
 			);
 			name = "我的关注";
 			sourceTree = "<group>";
@@ -304,6 +320,8 @@
 				CE9F44781C959A780013BAE8 /* FavouritesModel.m */,
 				CE8996B51C984C0D008ACDC7 /* StatuesUserTimeLineModel.h */,
 				CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */,
+				CE8E978C1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.h */,
+				CE8E978D1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -321,6 +339,8 @@
 				CE9F447B1C959A910013BAE8 /* FavouritesResponse.m */,
 				CE8996B81C984C37008ACDC7 /* StatuesUserTimeLineResponse.h */,
 				CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */,
+				CE8E978F1C9AE01C00BB2E6F /* FriendShipsFriendsResponse.h */,
+				CE8E97901C9AE01C00BB2E6F /* FriendShipsFriendsResponse.m */,
 			);
 			name = Response;
 			sourceTree = "<group>";
@@ -733,6 +753,7 @@
 				CE9F44791C959A780013BAE8 /* FavouritesModel.m in Sources */,
 				CE9F44721C9565E20013BAE8 /* FourViewTableCell.m in Sources */,
 				FECCB72E1C72FD15008F5D57 /* BaseResponse.m in Sources */,
+				CE8E978E1C9ADFFF00BB2E6F /* FriendShipsFriendsModel.m in Sources */,
 				FECCB7411C7307CC008F5D57 /* BaseViewController.m in Sources */,
 				FE10318C1C76B7C000A27B23 /* SDBrowserImageView.m in Sources */,
 				CE9F446C1C9557030013BAE8 /* UsersShowResponse.m in Sources */,
@@ -748,6 +769,7 @@
 				FE1031941C76B7EE00A27B23 /* NSAttributedString+Emotion.m in Sources */,
 				FE1031991C76B85700A27B23 /* FistViewTableCell.m in Sources */,
 				FEEEA8BB1C747D19009A0CA2 /* SSKeychain.m in Sources */,
+				CE8E97911C9AE01C00BB2E6F /* FriendShipsFriendsResponse.m in Sources */,
 				CE9F447C1C959A910013BAE8 /* FavouritesResponse.m in Sources */,
 				FECCB73A1C730775008F5D57 /* CUButton.m in Sources */,
 				FE1031A91C771D0800A27B23 /* UserModel.m in Sources */,
@@ -760,9 +782,11 @@
 				FECCB72B1C72F49B008F5D57 /* FKAPIClient.m in Sources */,
 				FECCB7491C730CDF008F5D57 /* BaseSubViewController.m in Sources */,
 				CE9F44751C9597870013BAE8 /* FavouriteViewController.m in Sources */,
+				CE8E97971C9AE79100BB2E6F /* MyAttributeTableCell.m in Sources */,
 				FE9086A51C74264E00235485 /* OAuthWebViewController.m in Sources */,
 				CE8996BD1C984CE3008ACDC7 /* MySendWeiBoViewController.m in Sources */,
 				FECCB7131C72E94F008F5D57 /* main.m in Sources */,
+				CE8E97941C9AE18C00BB2E6F /* MyAttributeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

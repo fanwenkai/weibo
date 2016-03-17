@@ -15,6 +15,7 @@
 #import "UsersShowResponse.h"
 #import "FavouritesResponse.h"
 #import "StatuesUserTimeLineResponse.h"
+#import "FriendShipsFriendsResponse.h"
 
 typedef void(^SDK_CALLBACK) (BaseResponse *result);
 

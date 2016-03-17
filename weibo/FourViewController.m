@@ -10,6 +10,7 @@
 #import "FourViewTableCell.h"
 #import "FavouriteViewController.h"
 #import "MySendWeiBoViewController.h"
+#import "MyAttributeViewController.h"
 
 @interface FourViewController ()<
 UITableViewDataSource,
@@ -190,6 +191,8 @@ UITableViewDelegate
     }
     else if (indexPath.section == 2){
         //我的关注
+        MyAttributeViewController *myAttributeVC = [[MyAttributeViewController alloc] init];
+        [self.navigationController pushViewController:myAttributeVC animated:YES];
     }
 }
 
