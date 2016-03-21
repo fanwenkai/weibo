@@ -44,7 +44,7 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
                                               andPage:(NSString *)page
                                              callBack:(SDK_CALLBACK)callBack;
 /**
- *  @Description 点赞
+ *  @Description 收藏
  *
  *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
  *  @param ID 填写微博 id ，一串数字。
@@ -52,10 +52,10 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
  *  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestFriendShipsCreateAndAccessToken:(NSString *)token
-                                                         andUID:(NSString *)UID
+                                                         andID:(NSString *)ID
                                                       callBack:(SDK_CALLBACK)callBack;
 /**
- *  @Description 取消点赞
+ *  @Description 取消收藏
  *
  *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
  *  @param ID 填写微博 id ，一串数字。
@@ -63,7 +63,7 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
  *  @return NSURLSessionTask
  */
 - (NSURLSessionTask *)requestFriendShipsDestroyAndAccessToken:(NSString *)token
-                                                          andUID:(NSString *)UID
+                                                          andID:(NSString *)ID
                                                        callBack:(SDK_CALLBACK)callBack;
 
 /**

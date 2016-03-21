@@ -97,7 +97,7 @@ UITableViewDelegate
     _pickerDesLabel.textAlignment = NSTextAlignmentCenter;
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero
-                                              style:UITableViewStyleGrouped];
+                                              style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.backgroundColor = kBGColor;
     [_tableView registerClass:[FourViewTableCell class]
@@ -142,34 +142,29 @@ UITableViewDelegate
 
 #pragma mark - UITableView的代理方法
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
 }
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 1;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 10;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.01;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 10;
+//}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 0.01;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     FourViewTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"fourViewTableCell" forIndexPath:indexPath];
-    if (indexPath.section == 0) {
+    if (indexPath.row == 0) {
         cell.textLabel.text = @"我的收藏";
     }
-    else if (indexPath.section == 1){
+    else if (indexPath.row == 1){
         cell.textLabel.text = @"我的微博";
     }
-    else if (indexPath.section == 2){
+    else if (indexPath.row == 2){
         cell.textLabel.text = @"我的关注";
     }
     return cell;
@@ -178,18 +173,18 @@ UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 0) {
+    if (indexPath.row == 0) {
         //我的收藏
         FavouriteViewController *favouriteVC = [[FavouriteViewController alloc] init];
         [self.navigationController pushViewController:favouriteVC animated:YES];
     }
-    else if (indexPath.section == 1){
+    else if (indexPath.row == 1){
         //我的微博
         MySendWeiBoViewController *mySendWeiBoVC = [[MySendWeiBoViewController alloc] init];
         [self.navigationController pushViewController:mySendWeiBoVC animated:YES];
         
     }
-    else if (indexPath.section == 2){
+    else if (indexPath.row == 2){
         //我的关注
         MyAttributeViewController *myAttributeVC = [[MyAttributeViewController alloc] init];
         [self.navigationController pushViewController:myAttributeVC animated:YES];

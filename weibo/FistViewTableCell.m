@@ -176,7 +176,7 @@ SDPhotoBrowserDelegate
     _attitudesBtn.tag = kAttributeBtnTag;
     [_attitudesBtn setImage:PNG(@"attitudes_nor") forState:UIControlStateNormal];
     [_attitudesBtn setImage:PNG(@"attitudes_sel") forState:UIControlStateSelected];
-    [_attitudesBtn setTitle:@" 关注" forState:UIControlStateNormal];
+    [_attitudesBtn setTitle:@" 收藏" forState:UIControlStateNormal];
     _attitudesBtn.titleLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
     [_attitudesBtn setTitleColor:MenuTextColor forState:UIControlStateNormal];
     [_attitudesBtn setTitleColor:UserNameColor forState:UIControlStateSelected];

@@ -52,7 +52,7 @@ UITableViewDelegate
 
 - (void)initView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -66,30 +66,30 @@ UITableViewDelegate
 }
 
 #pragma mark - UITableViewDataSource and Delegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return _dataArr.count;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    return _dataArr.count;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return _dataArr.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 10;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 0.1;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+//{
+//    return 10;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    return 0.1;
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FriendShipsFriendsModel* tempData = _dataArr[indexPath.section];
+    FriendShipsFriendsModel* tempData = _dataArr[indexPath.row];
     
     MyAttributeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAttributeTableCell" forIndexPath:indexPath];
     [cell.userImageView sd_setImageWithURL:STR_URL(tempData.profile_image_url)];

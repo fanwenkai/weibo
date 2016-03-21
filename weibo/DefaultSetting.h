@@ -15,9 +15,9 @@
 /*******************新浪微博应用控制台的配置信息***********************/
 
 /*******************密码有关信息********************/
-#define serverName @"fancuixia"
-#define tokenName @"token7"
-#define expiresInName @"expiresinname1"
+#define serverName @"fancuixia999"
+#define tokenName @"token"
+#define expiresInName @"expiresinname"
 #define uidName @"uid"
 /*******************密码有关信息********************/
 

@@ -174,12 +174,12 @@
 }
 
 - (NSURLSessionTask *)requestFriendShipsCreateAndAccessToken:(NSString *)token
-                                                         andUID:(NSString *)UID
+                                                         andID:(NSString *)ID
                                                       callBack:(SDK_CALLBACK)callBack
 {
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
     [tempDic setValue:token forKey:@"access_token"];
-    [tempDic setValue:UID forKey:@"uid"];
+    [tempDic setValue:ID forKey:@"id"];
     
     BaseResponse *response   = [[BaseResponse alloc] init];
     NSURLSessionTask *dataTask = [self postUrl:ATTITUDES_CREATE params:tempDic response:response callback:callBack];
@@ -187,12 +187,12 @@
 }
 
 - (NSURLSessionTask *)requestFriendShipsDestroyAndAccessToken:(NSString *)token
-                                                      andUID:(NSString *)UID
+                                                      andID:(NSString *)ID
                                                    callBack:(SDK_CALLBACK)callBack
 {
     NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
     [tempDic setValue:token forKey:@"access_token"];
-    [tempDic setValue:UID forKey:@"uid"];
+    [tempDic setValue:ID forKey:@"id"];
     
     BaseResponse *response   = [[BaseResponse alloc] init];
     NSURLSessionTask *dataTask = [self postUrl:ATTITUDES_DESTROY params:tempDic response:response callback:callBack];

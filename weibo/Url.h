@@ -16,10 +16,10 @@ static NSString *PUBLIC_TIMELINE = @"https://api.weibo.com/2/statuses/public_tim
 static NSString *COMMENT_S_CREATE = @"https://api.weibo.com/2/comments/create.json";
 
 //微博关注 POST
-static NSString *ATTITUDES_CREATE = @"https://api.weibo.com/2/friendships/create.json";
+static NSString *ATTITUDES_CREATE = @"https://api.weibo.com/2/favorites/create.json";
 
 //取消微博关注 POST
-static NSString *ATTITUDES_DESTROY = @"https://api.weibo.com/2/friendships/destroy.json";
+static NSString *ATTITUDES_DESTROY = @"https://api.weibo.com/2/favorites/destroy.json";
 
 //根据用户ID获取用户信息
 static NSString *USERS_SHOW = @"https://api.weibo.com/2/users/show.json";

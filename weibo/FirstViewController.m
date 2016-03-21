@@ -207,12 +207,12 @@ static FistViewTableCell *calcuCell = nil;
             DLog(@"进入评论回调");
         }
         else {
-            DLog(@"进入点赞回调");
+            DLog(@"进入收藏回调");
             if (!sender.selected) {
                 tempData.isAttitude = kAttributeSelStatue;
                 sender.selected = !sender.selected;
                 [[FKAPIClient getInstance] requestFriendShipsCreateAndAccessToken:[self getToken]
-                                                                           andUID:tempData.idstr
+                                                                           andID:tempData.idstr
                                                                          callBack:^(BaseResponse *result)
                 {
                     //关注
@@ -223,7 +223,7 @@ static FistViewTableCell *calcuCell = nil;
                 tempData.isAttitude = kAttributeNorStatue;
                 sender.selected = !sender.selected;
                 [[FKAPIClient getInstance] requestFriendShipsDestroyAndAccessToken:[self getToken]
-                                                                            andUID:tempData.idstr
+                                                                            andID:tempData.idstr
                                                                           callBack:^(BaseResponse *result)
                  {
                     //取消关注

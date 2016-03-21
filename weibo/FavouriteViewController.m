@@ -18,8 +18,8 @@ UITableViewDelegate
 @property(nonatomic, strong) NSArray *dataArr;//保存最新微博的数据
 @end
 
-#define kAttributeNorStatue @"1"
-#define kAttributeSelStatue @"2"
+#define kAttributeNorStatue @"2"
+#define kAttributeSelStatue @"1"
 
 static FistViewTableCell *calcuCell = nil;
 
@@ -195,7 +195,7 @@ static FistViewTableCell *calcuCell = nil;
                 tempData.isAttitude = kAttributeSelStatue;
                 sender.selected = !sender.selected;
                 [[FKAPIClient getInstance] requestFriendShipsCreateAndAccessToken:[self getToken]
-                                                                           andUID:tempData.idstr
+                                                                           andID:tempData.idstr
                                                                          callBack:^(BaseResponse *result)
                  {
                      //关注
@@ -206,7 +206,7 @@ static FistViewTableCell *calcuCell = nil;
                 tempData.isAttitude = kAttributeNorStatue;
                 sender.selected = !sender.selected;
                 [[FKAPIClient getInstance] requestFriendShipsDestroyAndAccessToken:[self getToken]
-                                                                            andUID:tempData.idstr
+                                                                            andID:tempData.idstr
                                                                           callBack:^(BaseResponse *result)
                  {
                      //取消关注

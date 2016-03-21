@@ -10,21 +10,27 @@
 
 @implementation MyAttributeTableCell
 
+#define kPickerHeight 50.f
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _userImageView = [UIImageView new];
         [self.contentView addSubview:_userImageView];
+        _userImageView.layer.cornerRadius = kPickerHeight/2;
+        _userImageView.layer.masksToBounds = YES;
         
         _userNameLabel = [UILabel new];
         [self.contentView addSubview:_userNameLabel];
         _userNameLabel.font = [UIFont systemFontOfSize:kGeneralFontSize];
+        _userNameLabel.textColor = kTextColor;
         
         _desLabel = [UILabel new];
         [self.contentView addSubview:_desLabel];
         _desLabel.font = [UIFont systemFontOfSize:kSmallFontSize];
         _desLabel.numberOfLines = 2;
+        _desLabel.textColor = kGrayTextColor;
         
         [_userImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.equalTo(self.contentView);
