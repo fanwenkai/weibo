@@ -58,6 +58,10 @@ UITableViewDelegate
     _tableView.delegate = self;
     _tableView.rowHeight = 60;
     
+    UIView *footView = [UIView new];;
+    footView.backgroundColor = CLEARCOLOR;
+    _tableView.tableFooterView = footView;
+    
     [_tableView registerClass:[MyAttributeTableCell class] forCellReuseIdentifier:@"myAttributeTableCell"];
     
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {

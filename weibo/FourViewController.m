@@ -106,6 +106,10 @@ UITableViewDelegate
     _tableView.delegate = self;
     _tableView.rowHeight = 44;
     
+    UIView *footView = [UIView new];;
+    footView.backgroundColor = CLEARCOLOR;
+    _tableView.tableFooterView = footView;
+    
     
     [_topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);

@@ -57,6 +57,17 @@ static FistViewTableCell *calcuCell = nil;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_tableView registerClass:[FistViewTableCell class] forCellReuseIdentifier:@"fistViewTableCell"];
     
+    
+//    __unsafe_unretained typeof(self) weakSelf = self;
+//    __unsafe_unretained UITableView *tableView = self.tableView;
+//    
+//    tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [weakSelf loadRemoteData];
+//            [tableView.mj_header endRefreshing];
+//        });
+//    }];
+    
     calcuCell = [[FistViewTableCell alloc] init];
     
 }
@@ -67,6 +78,9 @@ static FistViewTableCell *calcuCell = nil;
     if (![self isValidedExpiresID]) {
         DLog(@"FirstViewController No Login");
         return ;
+    }
+    if (_dataArr) {
+        _dataArr = nil;
     }
     
     __weak typeof(self) weakSelf = self;
