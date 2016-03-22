@@ -15,10 +15,13 @@ static NSString *PUBLIC_TIMELINE = @"https://api.weibo.com/2/statuses/public_tim
 //对一条微博进行评论
 static NSString *COMMENT_S_CREATE = @"https://api.weibo.com/2/comments/create.json";
 
-//微博关注 POST
+//转发一条微博
+static NSString *STATUES_REPOST = @"https://api.weibo.com/2/statuses/repost.json";
+
+//微博收藏 POST
 static NSString *ATTITUDES_CREATE = @"https://api.weibo.com/2/favorites/create.json";
 
-//取消微博关注 POST
+//取消微博收藏 POST
 static NSString *ATTITUDES_DESTROY = @"https://api.weibo.com/2/favorites/destroy.json";
 
 //根据用户ID获取用户信息

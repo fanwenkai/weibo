@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2940EAFC16E406E019D07E25 /* libPods-weibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */; };
+		CE414CE71CA17C8700932DBC /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE414CE61CA17C8700932DBC /* CommentViewController.m */; };
 		CE8996B71C984C0D008ACDC7 /* StatuesUserTimeLineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */; };
 		CE8996BA1C984C37008ACDC7 /* StatuesUserTimeLineResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996B91C984C37008ACDC7 /* StatuesUserTimeLineResponse.m */; };
 		CE8996BD1C984CE3008ACDC7 /* MySendWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8996BC1C984CE3008ACDC7 /* MySendWeiBoViewController.m */; };
@@ -76,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		48F7D48ED9AC542E9ADC428F /* libPods-weibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-weibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE414CE51CA17C8700932DBC /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		CE414CE61CA17C8700932DBC /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		CE8996B51C984C0D008ACDC7 /* StatuesUserTimeLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuesUserTimeLineModel.h; sourceTree = "<group>"; };
 		CE8996B61C984C0D008ACDC7 /* StatuesUserTimeLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatuesUserTimeLineModel.m; sourceTree = "<group>"; };
 		CE8996B81C984C37008ACDC7 /* StatuesUserTimeLineResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatuesUserTimeLineResponse.h; sourceTree = "<group>"; };
@@ -221,6 +224,15 @@
 				FDF1C82ACD991EE34CD9FC32 /* Pods-weibo.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CE414CE41CA17C6F00932DBC /* 评论 */ = {
+			isa = PBXGroup;
+			children = (
+				CE414CE51CA17C8700932DBC /* CommentViewController.h */,
+				CE414CE61CA17C8700932DBC /* CommentViewController.m */,
+			);
+			name = "评论";
 			sourceTree = "<group>";
 		};
 		CE8996AA1C9840CC008ACDC7 /* 我的微博 */ = {
@@ -522,6 +534,7 @@
 		FECCB7751C7322ED008F5D57 /* TabBarSubVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE414CE41CA17C6F00932DBC /* 评论 */,
 				FE9086A11C741CF100235485 /* FourSubVC */,
 				FE9086A01C741CE700235485 /* ThreeSubVC */,
 				FE90869F1C741CDF00235485 /* SecondSubVC */,
@@ -723,6 +736,7 @@
 				FE1031A01C77088100A27B23 /* BaseModel.m in Sources */,
 				FE1031A61C770C5F00A27B23 /* PublicTimeLineResponse.m in Sources */,
 				FE10318E1C76B7C000A27B23 /* SDWaitingView.m in Sources */,
+				CE414CE71CA17C8700932DBC /* CommentViewController.m in Sources */,
 				FECCB72B1C72F49B008F5D57 /* FKAPIClient.m in Sources */,
 				FECCB7491C730CDF008F5D57 /* BaseSubViewController.m in Sources */,
 				CE9F44751C9597870013BAE8 /* FavouriteViewController.m in Sources */,

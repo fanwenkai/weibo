@@ -257,4 +257,17 @@
     return dataTask;
 }
 
+- (NSURLSessionTask *)requestStatuesRepostAndAccessToken:(NSString *)token
+                                              andID:(NSString *)UID
+                                           callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:UID forKey:@"id"];
+    
+    BaseResponse *response   = [[BaseResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:STATUES_USER_TIMELINE params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
 @end

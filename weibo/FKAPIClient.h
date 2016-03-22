@@ -120,4 +120,16 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
                                                         andUID:(NSString *)UID
                                                       andCount:(NSString *)count
                                                       callBack:(SDK_CALLBACK)callBack;
+
+/**
+ *  @Description 转发一条微博
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param UID 要转发的微博ID。
+ *
+ *  @return NSOperation
+ */
+- (NSOperation *)requestStatuesRepostAndAccessToken:(NSString *)token
+                                              andID:(NSString *)UID
+                                           callBack:(SDK_CALLBACK)callBack;
 @end

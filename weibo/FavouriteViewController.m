@@ -185,6 +185,14 @@ static FistViewTableCell *calcuCell = nil;
     [cell mentMethodCallBack:^(UIButton *sender) {
         if (sender.tag == kRepostBtnTag) {
             DLog(@"进入转发回调");
+            [self showHUD:@"拼命转转发中..." isDim:NO];
+            [[FKAPIClient getInstance] requestStatuesRepostAndAccessToken:[self getToken]
+                                                                    andID:tempData.idstr
+                                                                 callBack:^(BaseResponse *result)
+             {
+                 [self hideHUD];
+                 [JKAlert showMessage:@"已转发"];
+             }];
         }
         else if (sender.tag == kCommentBtnTag){
             DLog(@"进入评论回调");
