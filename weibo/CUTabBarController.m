@@ -42,7 +42,7 @@
     [self tabBarChildViewController:messageVC norImage:[UIImage imageNamed:@"tabbar_message_center"] selImage:[UIImage imageNamed:@"tabbar_message_center_selected"] title:@"消息"];
     
     UIViewController *discoverVC = [[ThreeViewController alloc] init];
-    [self tabBarChildViewController:discoverVC norImage:[UIImage imageNamed:@"tabbar_discover"] selImage:[UIImage imageNamed:@"tabbar_discover_selected"] title:@"搜索"];
+    [self tabBarChildViewController:discoverVC norImage:[UIImage imageNamed:@"tabbar_discover"] selImage:[UIImage imageNamed:@"tabbar_discover_selected"] title:@"发微博"];
     
     UIViewController *myVC = [[FourViewController alloc] init];
     [self tabBarChildViewController:myVC norImage:[UIImage imageNamed:@"tabbar_profile"] selImage:[UIImage imageNamed:@"tabbar_profile_selected"] title:@"我的"];
@@ -66,19 +66,19 @@
     /** 设置代理 */
     tabBar.delegate = self;
     
-    // 设置中间按钮
-    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
-    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-
-    [tabBar.centerButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
+//    // 设置中间按钮
+//    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+//    [tabBar.centerButton setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+//
+//    [tabBar.centerButton addTarget:self action:@selector(chickCenterButton) forControlEvents:UIControlEventTouchUpInside];
     
     [self.tabBar addSubview:tabBar];
 }
 
-- (void)chickCenterButton
-{
-    NSLog(@"点击了中间按钮");
-}
+//- (void)chickCenterButton
+//{
+//    NSLog(@"点击了中间按钮");
+//}
 
 /** View激将显示时 */
 - (void)viewWillAppear:(BOOL)animated

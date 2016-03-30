@@ -16,6 +16,7 @@
 #import "FavouritesResponse.h"
 #import "StatuesUserTimeLineResponse.h"
 #import "FriendShipsFriendsResponse.h"
+#import "CommentsShowResponse.h"
 
 typedef void(^SDK_CALLBACK) (BaseResponse *result);
 
@@ -129,7 +130,41 @@ typedef void(^SDK_CALLBACK) (BaseResponse *result);
  *
  *  @return NSOperation
  */
-- (NSOperation *)requestStatuesRepostAndAccessToken:(NSString *)token
+- (NSURLSessionTask *)requestStatuesRepostAndAccessToken:(NSString *)token
                                               andID:(NSString *)UID
                                            callBack:(SDK_CALLBACK)callBack;
+/**
+ *  @Description 根据微博ID返回某条微博的评论列表
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param ID 需要查询的微博ID。
+ *
+ *  @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestCommentsShowAndAccessToken:(NSString *)token
+                                                  andID:(NSString *)ID
+                                               callBack:(SDK_CALLBACK)callBack;
+/**
+ *  @Description 对一条微博进行评论
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param commnet 评论内容
+ *  @param ID 需要评论的微博ID。
+ *
+ *  @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestCommentsCreateAndAccessToken:(NSString *)token
+                                               andComment:(NSString *)commnet
+                                                    andID:(NSString *)ID
+                                                 callBack:(SDK_CALLBACK)callBack;
+/**
+ *  @Description 搜索某一话题下的微博
+ *
+ *  @param token 采用OAuth授权方式为必填参数，OAuth授权后获得。
+ *  @param statue 要发布的微博文本内容，必须做URLencode，内容不超过140个汉字。
+ *  @return NSURLSessionTask
+ */
+- (NSURLSessionTask *)requestStatuesUpdateAndToken:(NSString *)token
+                                             andStatue:(NSString *)statue
+                                         callBack:(SDK_CALLBACK)callBack;
 @end

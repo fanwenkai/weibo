@@ -8,6 +8,7 @@
 
 #import "MySendWeiBoViewController.h"
 #import "MySendWeiBoCell.h"
+#import "CommentViewController.h"
 
 @interface MySendWeiBoViewController ()<
 UITableViewDataSource,
@@ -198,6 +199,9 @@ static FistViewTableCell *calcuCell = nil;
         }
         else if (sender.tag == kCommentBtnTag){
             DLog(@"进入评论回调");
+            CommentViewController *commentVC = [[CommentViewController alloc] init];
+            [commentVC fromSuperData:tempData];
+            [self.navigationController pushViewController:commentVC animated:YES];
         }
         else {
             DLog(@"进入点赞回调");

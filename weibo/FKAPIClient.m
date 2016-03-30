@@ -270,4 +270,40 @@
     return dataTask;
 }
 
+- (NSURLSessionTask *)requestCommentsShowAndAccessToken:(NSString *)token
+                                                  andID:(NSString *)ID
+                                               callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:ID forKey:@"id"];
+    [tempDic setValue:@"50" forKey:@"count"];
+    CommentsShowResponse *response   = [[CommentsShowResponse alloc] init];
+    NSURLSessionTask *dataTask = [self getUrl:COMMENTS_SHOW params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+- (NSURLSessionTask *)requestCommentsCreateAndAccessToken:(NSString *)token
+                                               andComment:(NSString *)commnet
+                                                    andID:(NSString *)ID
+                                                 callBack:(SDK_CALLBACK)callBack{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:ID forKey:@"id"];
+    [tempDic setValue:[commnet stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:@"comment"];
+    BaseResponse *response   = [[BaseResponse alloc] init];
+    NSURLSessionTask *dataTask = [self postUrl:COMMENTS_CREATE params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+- (NSURLSessionTask *)requestStatuesUpdateAndToken:(NSString *)token
+                                         andStatue:(NSString *)statue
+                                          callBack:(SDK_CALLBACK)callBack
+{
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] init];
+    [tempDic setValue:token forKey:@"access_token"];
+    [tempDic setValue:[statue stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] forKey:@"status"];
+    BaseResponse *response   = [[BaseResponse alloc] init];
+    NSURLSessionTask *dataTask = [self postUrl:STATUES_UPDATE params:tempDic response:response callback:callBack];
+    return dataTask;
+}
+
 @end

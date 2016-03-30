@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "FistViewTableCell.h"
+#import "CommentViewController.h"
 
 #define kAttributeNorStatue @"1"
 #define kAttributeSelStatue @"2"
@@ -24,7 +25,6 @@ UITableViewDelegate
 @property(nonatomic, strong) UITableView *tableView;
 
 @property(nonatomic, strong) NSArray *dataArr;//保存最新微博的数据
-
 
 @end
 
@@ -228,6 +228,9 @@ static FistViewTableCell *calcuCell = nil;
         }
         else if (sender.tag == kCommentBtnTag){
             DLog(@"进入评论回调");
+            CommentViewController *commentVC = [[CommentViewController alloc] init];
+            [commentVC fromSuperData:tempData];
+            [self.navigationController pushViewController:commentVC animated:YES];
         }
         else {
             DLog(@"进入收藏回调");

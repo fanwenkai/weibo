@@ -10,4 +10,6 @@
 
 @interface CommentViewController : BaseSubViewController
 
+- (void)fromSuperData:(id)data;
+
 @end

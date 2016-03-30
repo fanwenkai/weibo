@@ -13,7 +13,10 @@
 static NSString *PUBLIC_TIMELINE = @"https://api.weibo.com/2/statuses/public_timeline.json";
 
 //对一条微博进行评论
-static NSString *COMMENT_S_CREATE = @"https://api.weibo.com/2/comments/create.json";
+static NSString *COMMENTS_CREATE = @"https://api.weibo.com/2/comments/create.json";
+
+//根据微博ID返回某条微博的评论列表
+static NSString *COMMENTS_SHOW = @"https://api.weibo.com/2/comments/show.json";
 
 //转发一条微博
 static NSString *STATUES_REPOST = @"https://api.weibo.com/2/statuses/repost.json";
@@ -35,4 +38,10 @@ static NSString *FRIENDSHIPS_FRIENDS = @"https://api.weibo.com/2/friendships/fri
 
 //获取某个用户最新发表的微博列表
 static NSString *STATUES_USER_TIMELINE = @"https://api.weibo.com/2/statuses/user_timeline.json";
+
+//发布一条新微博
+static NSString *STATUES_UPDATE = @"https://api.weibo.com/2/statuses/update.json";
 #endif /* Url_h */
+
+//搜索某一话题下的微博
+

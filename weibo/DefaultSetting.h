@@ -33,6 +33,7 @@
 
 #define kTextColor RGB(51, 51, 51)
 #define kGrayTextColor RGB(153, 153, 153)
+#define kWhtieColor RGB(255, 255, 255)
 
 
 /*********************字体大小*************************/
