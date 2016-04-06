@@ -211,6 +211,7 @@ static FistViewTableCell *calcuCell = nil;
                                                                          callBack:^(BaseResponse *result)
                  {
                      //关注
+                     [self loadRemouteData];
                  }];
                 
             }
@@ -222,6 +223,7 @@ static FistViewTableCell *calcuCell = nil;
                                                                           callBack:^(BaseResponse *result)
                  {
                      //取消关注
+                     [self loadRemouteData];
                  }];
             }
         }

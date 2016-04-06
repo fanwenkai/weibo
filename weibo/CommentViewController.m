@@ -152,12 +152,14 @@ static CommentsShowTableCell *staticCell = nil;
 #pragma mark - Action
 - (void)sendBtnMethod{
     DLog(@"发送");
+    __weak typeof(self) weakSelf = self;
     [[FKAPIClient getInstance] requestCommentsCreateAndAccessToken:[self getToken]
                                                         andComment:_enterTD.text
                                                              andID:_publicTimeLineData.idstr
                                                           callBack:^(BaseResponse *result)
      {
-         [JKAlert showMessage:@"发送成功"];
+         weakSelf.enterTD.text = @"";
+         [weakSelf loadData];
     }];
 }
 

@@ -86,7 +86,7 @@ static FistViewTableCell *calcuCell = nil;
     __weak typeof(self) weakSelf = self;
     [weakSelf showHUD:@"加载中..." isDim:NO];
     [[FKAPIClient getInstance] requestPublicTimeLineAndAccessToken:[self getToken]
-                                                          andCount:@"50"
+                                                          andCount:@"100"
                                                            andPage:@"1"
                                                           callBack:^(BaseResponse *result)
      {
@@ -171,9 +171,6 @@ static FistViewTableCell *calcuCell = nil;
     
     [cell setImageswithURLs:[self picUrls:tempData.pic_urls]];
     
-//    [cell.repostsBtn setTitle:tempData.reposts_count forState:UIControlStateNormal];
-//    [cell.commentsBtn setTitle:tempData.comments_count forState:UIControlStateNormal];
-//    [cell.attitudesBtn setTitle:tempData.attitudes_count forState:UIControlStateNormal];
     
     if ([tempData.isAttitude isEqualToString:kAttributeNorStatue]) {
         cell.attitudesBtn.selected = NO;
