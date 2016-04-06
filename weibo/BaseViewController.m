@@ -30,7 +30,6 @@
         self.extendedLayoutIncludesOpaqueBars = NO;
         self.navigationController.navigationBar.translucent = NO;
         self.modalPresentationCapturesStatusBarAppearance = NO;
-        
     }
     
     self.view.backgroundColor = kBGColor;
@@ -73,6 +72,11 @@
         }];
         [alert show];
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
 }
 
 -(AppDelegate *)appDelegate{
